@@ -1,6 +1,8 @@
-import { NavLink, Outlet, Navigate } from "react-router-dom";
+import { NavLink, Outlet, Navigate, Link } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import { StatBar } from "./StatBar";
+import { Avatar } from "./Avatar";
+import { Logo } from "./Logo";
 
 const PRIMARY_NAV = [
   { to: "/city", label: "City" },
@@ -47,18 +49,21 @@ export function AppShell() {
           background: "var(--color-bg-elevated)",
         }}
       >
-        <strong style={{ color: "var(--color-accent-strong)" }}>
-          {player.username} <span style={{ color: "var(--color-text-muted)" }}>Lv.{player.level}</span>
-        </strong>
+        <Link to="/city" style={{ display: "flex", alignItems: "center" }}>
+          <Logo />
+        </Link>
+        <Link to="/profile/me" style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <Avatar avatarId={player.avatarId} size={32} />
+          <strong style={{ color: "var(--color-accent-strong)" }}>
+            {player.username} <span style={{ color: "var(--color-text-muted)" }}>Lv.{player.level}</span>
+          </strong>
+        </Link>
         <StatBar label="Life" value={player.life} max={player.maxLife} color="var(--color-danger)" />
         <StatBar label="Stamina" value={player.stamina} max={player.maxStamina} color="var(--color-success)" />
         <span>Cash: ${player.cash.toLocaleString()}</span>
         <span>Bank: ${player.bankBalance.toLocaleString()}</span>
         <span>Credits: {player.credits}</span>
-        <NavLink to="/profile/me" style={{ marginLeft: "auto" }}>
-          Profile
-        </NavLink>
-        <button className="button button--secondary" onClick={() => logout()}>
+        <button className="button button--secondary" style={{ marginLeft: "auto" }} onClick={() => logout()}>
           Logout
         </button>
       </header>

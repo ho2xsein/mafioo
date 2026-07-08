@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import type { PlayerPublic } from "@mafioo/shared";
 import { api } from "../api/client";
 import { useAuth } from "../auth/AuthContext";
 import { Card } from "../design-system/Card";
+import { Avatar } from "../design-system/Avatar";
 
 export function ProfilePage() {
   const { username = "me" } = useParams();
@@ -20,17 +21,25 @@ export function ProfilePage() {
 
   if (!player) return <p>Loading profile...</p>;
 
+  const isMe = username === "me" || player.username === me?.username;
+
   return (
     <div style={{ maxWidth: 480 }}>
       <h2>{player.username}</h2>
       <Card>
-        <p>Level: {player.level}</p>
-        <p>Respect: {player.respect}</p>
-        <p>
-          Street: ({player.streetX}, {player.streetY})
-        </p>
-        <p>Gang: {player.gangId ?? "None"}</p>
-        <p>Faction: {player.factionId ?? "None"}</p>
+        <div style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
+          <Avatar avatarId={player.avatarId} size={80} />
+          <div>
+            <p>Level: {player.level}</p>
+            <p>Respect: {player.respect}</p>
+            <p>
+              Street: ({player.streetX}, {player.streetY})
+            </p>
+            <p>Gang: {player.gangId ?? "None"}</p>
+            <p>Faction: {player.factionId ?? "None"}</p>
+            {isMe && <Link to="/profile/avatar">Change avatar</Link>}
+          </div>
+        </div>
       </Card>
     </div>
   );

@@ -12,6 +12,7 @@ import { top10Router } from "./routes/top10.js";
 import { inventoryRouter } from "./routes/inventory.js";
 import { crimeLogRouter } from "./routes/crimeLog.js";
 import { profileRouter } from "./routes/profile.js";
+import { barRouter } from "./routes/bar.js";
 
 export function createApp() {
   const app = express();
@@ -31,6 +32,7 @@ export function createApp() {
   app.use("/inventory", inventoryRouter);
   app.use("/crime_log", crimeLogRouter);
   app.use("/profile", profileRouter);
+  app.use("/bar", barRouter);
 
   app.use(errorHandler);
 

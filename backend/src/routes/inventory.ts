@@ -22,6 +22,7 @@ inventoryRouter.get(
       itemTypeId: i.itemType.id,
       name: i.itemType.name,
       category: i.itemType.category,
+      icon: i.itemType.icon,
       quantity: i.quantity,
       equippedSlot: i.equippedSlot,
       sellCash: i.itemType.sellCash,

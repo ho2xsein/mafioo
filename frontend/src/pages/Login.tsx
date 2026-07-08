@@ -3,6 +3,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { api, ApiError } from "../api/client";
 import { useAuth } from "../auth/AuthContext";
 import type { AuthResponse } from "@mafioo/shared";
+import { Logo } from "../design-system/Logo";
 
 export function LoginPage() {
   const { player, refresh } = useAuth();
@@ -31,7 +32,10 @@ export function LoginPage() {
 
   return (
     <div style={{ maxWidth: 360, margin: "80px auto" }} className="card">
-      <h2>Sign in to Mafioo</h2>
+      <div style={{ textAlign: "center", marginBottom: 16 }}>
+        <Logo size={30} />
+      </div>
+      <h2>Sign in</h2>
       <form onSubmit={onSubmit}>
         <div className="form-row">
           <label>Username</label>

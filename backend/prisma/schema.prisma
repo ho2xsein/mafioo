@@ -144,6 +144,7 @@ model ItemType {
   groupId     Int          @default(0)
   name        String
   category    ItemCategory
+  icon        String?
   buyCash     Int          @default(0)
   sellCash    Int          @default(0)
   requiredLevel Int        @default(1)

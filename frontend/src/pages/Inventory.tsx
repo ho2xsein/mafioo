@@ -33,6 +33,16 @@ export function InventoryPage() {
         rowKey={(i) => i.id}
         emptyMessage="Your inventory is empty."
         columns={[
+          {
+            key: "icon",
+            header: "",
+            render: (i) =>
+              i.icon ? (
+                <img src={i.icon} width={32} height={32} style={{ borderRadius: 4, objectFit: "cover" }} alt="" />
+              ) : (
+                <div style={{ width: 32, height: 32 }} />
+              ),
+          },
           { key: "name", header: "Item", render: (i) => i.name },
           { key: "category", header: "Category", render: (i) => i.category },
           { key: "quantity", header: "Qty", render: (i) => i.quantity },

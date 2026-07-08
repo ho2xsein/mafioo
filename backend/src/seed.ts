@@ -40,18 +40,25 @@ const CITY_SPOTS = [
 ];
 
 const ITEM_TYPES = [
-  { typeId: 501, name: "Soda", category: "drink" as const, buyCash: 50, sellCash: 10, effect: { stamina: 15, toxication: 1 } },
-  { typeId: 505, name: "Whiskey", category: "drink" as const, buyCash: 300, sellCash: 60, effect: { stamina: 120, toxication: 5 } },
-  { typeId: 701, name: "Berta", category: "hooker" as const, buyCash: 1, sellCash: 0, effect: { sexapeal: 20 }, requiredLevel: 1 },
-  { typeId: 702, name: "Norah", category: "hooker" as const, buyCash: 1, sellCash: 0, effect: { sexapeal: 25 }, requiredLevel: 3 },
-  { typeId: 703, name: "Gerri", category: "hooker" as const, buyCash: 1, sellCash: 0, effect: { sexapeal: 30 }, requiredLevel: 5 },
+  { typeId: 7924, name: "Soda", category: "drink" as const, icon: "/bar/soda.jpg", buyCash: 50, sellCash: 10, effect: { stamina: 20, toxication: 0 } },
+  { typeId: 3778, name: "Whiskey", category: "drink" as const, icon: "/bar/whiskey.jpg", buyCash: 300, sellCash: 60, effect: { stamina: 120, toxication: 5 } },
+  { typeId: 2411, name: "Berta", category: "hooker" as const, icon: "/bar/hooker_12.jpg", buyCash: 1, sellCash: 0, effect: { sexapeal: 20 }, requiredLevel: 1 },
+  { typeId: 2412, name: "Norah", category: "hooker" as const, icon: "/bar/hooker_13.jpg", buyCash: 1, sellCash: 0, effect: { sexapeal: 22 }, requiredLevel: 1 },
+  { typeId: 4738, name: "Gerri", category: "hooker" as const, icon: "/bar/hooker_14.jpg", buyCash: 1, sellCash: 0, effect: { sexapeal: 25 }, requiredLevel: 3 },
+  { typeId: 3460, name: "Lilly", category: "hooker" as const, icon: "/bar/hooker_15.jpg", buyCash: 1, sellCash: 0, effect: { sexapeal: 27 }, requiredLevel: 3 },
+  { typeId: 2410, name: "Suzzie", category: "hooker" as const, icon: "/bar/hooker_16.jpg", buyCash: 1, sellCash: 0, effect: { sexapeal: 30 }, requiredLevel: 5 },
+  { typeId: 4832, name: "Vikki", category: "hooker" as const, icon: "/bar/hooker_17.jpg", buyCash: 1, sellCash: 0, effect: { sexapeal: 32 }, requiredLevel: 5 },
+  { typeId: 4833, name: "Daisy", category: "hooker" as const, icon: "/bar/hooker_18.jpg", buyCash: 1, sellCash: 0, effect: { sexapeal: 35 }, requiredLevel: 8 },
+  { typeId: 8263, name: "Carmen", category: "hooker" as const, icon: "/bar/hooker_19.jpg", buyCash: 1, sellCash: 0, effect: { sexapeal: 38 }, requiredLevel: 10 },
+  { typeId: 8264, name: "Annie", category: "hooker" as const, icon: "/bar/hooker_20.jpg", buyCash: 1, sellCash: 0, effect: { sexapeal: 40 }, requiredLevel: 12 },
   { typeId: 801, name: "Cash stash", category: "consumable" as const, buyCash: 0, sellCash: 150, effect: { cash: 1000 } },
   { typeId: 812, name: "Agent voucher", category: "consumable" as const, buyCash: 0, sellCash: 50, effect: { agentAttacks: 1 } },
   { typeId: 813, name: "Get Out of Jail card", category: "card" as const, buyCash: 0, sellCash: 200, effect: { jailRelease: true } },
-  { typeId: 901, name: "Pocket knife", category: "gun" as const, buyCash: 2000, sellCash: 400, effect: { attack: 15 } },
-  { typeId: 902, name: "Revolver", category: "gun" as const, buyCash: 8000, sellCash: 1600, effect: { attack: 40 } },
-  { typeId: 950, name: "Old sedan", category: "car" as const, buyCash: 5000, sellCash: 1000, effect: { getawayBonus: 10 } },
-  { typeId: 960, name: "Guard dog", category: "dog" as const, buyCash: 3000, sellCash: 600, effect: { defence: 5 } },
+  { typeId: 901, name: "Pocket knife", category: "gun" as const, icon: "/icons/gun.jpg", buyCash: 2000, sellCash: 400, effect: { attack: 15 } },
+  { typeId: 902, name: "Revolver", category: "gun" as const, icon: "/icons/gun.jpg", buyCash: 8000, sellCash: 1600, effect: { attack: 40 } },
+  { typeId: 950, name: "Old sedan", category: "car" as const, icon: "/icons/car.jpg", buyCash: 5000, sellCash: 1000, effect: { getawayBonus: 10 } },
+  { typeId: 960, name: "Guard dog", category: "dog" as const, icon: "/icons/dog.jpg", buyCash: 3000, sellCash: 600, effect: { defence: 5 } },
+  { typeId: 970, name: "Frag grenade", category: "grenade" as const, icon: "/icons/grenade.jpg", buyCash: 1500, sellCash: 300, effect: { blastDamage: 20 } },
 ];
 
 const EXTRAS = [
@@ -116,18 +123,28 @@ async function main() {
     update: {},
     create: { id: "seed-bar-1", name: "The Hideout", type: "hotel", rating: 3 },
   });
-  const soda = await prisma.itemType.findUniqueOrThrow({ where: { typeId: 501 } });
-  const berta = await prisma.itemType.findUniqueOrThrow({ where: { typeId: 701 } });
-  await prisma.barItem.upsert({
-    where: { barId_itemTypeId: { barId: bar.id, itemTypeId: soda.id } },
-    update: {},
-    create: { barId: bar.id, itemTypeId: soda.id, quantityAvailable: 20, maxQuantity: 20 },
-  });
-  await prisma.barItem.upsert({
-    where: { barId_itemTypeId: { barId: bar.id, itemTypeId: berta.id } },
-    update: {},
-    create: { barId: bar.id, itemTypeId: berta.id, quantityAvailable: 3, maxQuantity: 3 },
-  });
+  const barStock: { typeId: number; quantity: number }[] = [
+    { typeId: 7924, quantity: 40 },
+    { typeId: 3778, quantity: 20 },
+    { typeId: 2411, quantity: 5 },
+    { typeId: 2412, quantity: 4 },
+    { typeId: 4738, quantity: 3 },
+    { typeId: 3460, quantity: 3 },
+    { typeId: 2410, quantity: 2 },
+  ];
+  for (const stock of barStock) {
+    const itemType = await prisma.itemType.findUniqueOrThrow({ where: { typeId: stock.typeId } });
+    await prisma.barItem.upsert({
+      where: { barId_itemTypeId: { barId: bar.id, itemTypeId: itemType.id } },
+      update: {},
+      create: {
+        barId: bar.id,
+        itemTypeId: itemType.id,
+        quantityAvailable: stock.quantity,
+        maxQuantity: stock.quantity,
+      },
+    });
+  }
 
   console.log("Seed complete.");
 }

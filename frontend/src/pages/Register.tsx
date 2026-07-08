@@ -3,6 +3,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { api, ApiError } from "../api/client";
 import { useAuth } from "../auth/AuthContext";
 import type { AuthResponse } from "@mafioo/shared";
+import { Logo } from "../design-system/Logo";
 
 export function RegisterPage() {
   const { player, refresh } = useAuth();
@@ -39,6 +40,9 @@ export function RegisterPage() {
 
   return (
     <div style={{ maxWidth: 360, margin: "80px auto" }} className="card">
+      <div style={{ textAlign: "center", marginBottom: 16 }}>
+        <Logo size={30} />
+      </div>
       <h2>Create your gangster</h2>
       <form onSubmit={onSubmit}>
         <div className="form-row">

@@ -12,12 +12,13 @@ import { FriendsPage } from "./pages/Friends";
 import { Top10Page } from "./pages/Top10";
 import { CrimeLogPage } from "./pages/CrimeLog";
 import { ProfilePage } from "./pages/Profile";
+import { AvatarPickerPage } from "./pages/AvatarPicker";
+import { BarsListPage, BarDetailPage } from "./pages/Bars";
 import { ComingSoonPage } from "./pages/ComingSoon";
 
 const COMING_SOON_ROUTES: { path: string; title: string }[] = [
   { path: "/school", title: "School" },
   { path: "/fitness", title: "Fitness" },
-  { path: "/bars", title: "Bars" },
   { path: "/contrabandist", title: "Contrabandist" },
   { path: "/market", title: "Black Market" },
   { path: "/jail", title: "Jail" },
@@ -52,6 +53,9 @@ export function App() {
             <Route path="/friends" element={<FriendsPage />} />
             <Route path="/top10/:metric" element={<Top10Page />} />
             <Route path="/crime_log" element={<CrimeLogPage />} />
+            <Route path="/bars" element={<BarsListPage />} />
+            <Route path="/bars/:id" element={<BarDetailPage />} />
+            <Route path="/profile/avatar" element={<AvatarPickerPage />} />
             <Route path="/profile/:username" element={<ProfilePage />} />
             {COMING_SOON_ROUTES.map((r) => (
               <Route key={r.path} path={r.path} element={<ComingSoonPage title={r.title} />} />
