@@ -1,0 +1,564 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------- Core player ----------
+
+model Player {
+  id               String    @id @default(cuid())
+  username         String    @unique
+  email            String    @unique
+  passwordHash     String
+  level            Int       @default(1)
+  xp               Int       @default(0)
+  respect          Int       @default(0)
+  standing         Int       @default(0)
+  avatarId         Int       @default(-1)
+
+  cash             Int       @default(5000)
+  bankBalance      Int       @default(0)
+  credits          Int       @default(10)
+  connections      Int       @default(0)
+
+  life             Int       @default(100)
+  maxLife          Int       @default(100)
+  stamina          Int       @default(100)
+  maxStamina       Int       @default(100)
+  heat             Int       @default(0)
+  criminalRecord   Int       @default(0)
+  toxication       Int       @default(0)
+
+  strength         Int       @default(10)
+  intellect        Int       @default(10)
+  sexapeal         Int       @default(10)
+
+  fitnessPoints    Int       @default(12)
+  maxFitnessPoints Int       @default(12)
+  schoolPoints     Int       @default(12)
+  maxSchoolPoints  Int       @default(12)
+  hookerPoints     Int       @default(12)
+  maxHookerPoints  Int       @default(12)
+  battlePoints     Int       @default(10)
+  maxBattlePoints  Int       @default(10)
+  lastRegenAt      DateTime  @default(now())
+
+  freeSkillPoints  Int       @default(0)
+  attackMode       AttackMode @default(normal)
+
+  streetX          Int       @default(0)
+  streetY          Int       @default(0)
+
+  vipExpiresAt     DateTime?
+  factionId        String?
+  gangId           String?
+
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  skills             PlayerSkill[]
+  inventory          InventoryItem[]
+  bars               Bar[]
+  crimesAsAttacker   CrimeLog[]        @relation("attacker")
+  crimesAsVictim     CrimeLog[]        @relation("victim")
+  messagesSent       Message[]         @relation("sender")
+  messagesReceived   Message[]         @relation("recipient")
+  friendshipsFrom    Friendship[]      @relation("friendshipFrom")
+  friendshipsTo      Friendship[]      @relation("friendshipTo")
+  quests             PlayerQuest[]
+  taskProgress       PlayerTaskProgress[]
+  rackets            Racket[]
+  pollVotes          PollVote[]
+  dayTypeVotes       DayTypeVote[]
+  bankTransactions   BankTransaction[]
+  loans              Loan[]
+  safeboxes          Safebox[]
+  jailSentence       JailSentence?
+  jailChatMessages   JailChatMessage[]
+  ambushesSet        Ambush[]          @relation("ambushSetter")
+  ambushesTargeting  Ambush[]          @relation("ambushTarget")
+  activeExtras       PlayerActiveExtra[]
+  ads                ClassifiedAd[]
+  achievements       PlayerAchievement[]
+  seasonWins         SeasonWinner[]
+  marketListings     MarketListing[]
+
+  @@index([respect])
+  @@index([streetX, streetY])
+}
+
+enum AttackMode {
+  normal
+  defensive
+  aggressive
+}
+
+// ---------- Skills ----------
+
+model Skill {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  name        String
+  description String
+  requiredLevelPerLevel Int @default(1)
+
+  playerSkills PlayerSkill[]
+}
+
+model PlayerSkill {
+  id       String @id @default(cuid())
+  playerId String
+  skillId  String
+  level    Int    @default(0)
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  skill  Skill  @relation(fields: [skillId], references: [id], onDelete: Cascade)
+
+  @@unique([playerId, skillId])
+}
+
+// ---------- Items ----------
+
+enum ItemCategory {
+  gun
+  drink
+  hooker
+  card
+  blueprint
+  consumable
+  booster
+  grenade
+  car
+  dog
+  credit_pack
+  special
+}
+
+model ItemType {
+  id          String       @id @default(cuid())
+  typeId      Int          @unique
+  groupId     Int          @default(0)
+  name        String
+  category    ItemCategory
+  buyCash     Int          @default(0)
+  sellCash    Int          @default(0)
+  requiredLevel Int        @default(1)
+  effect      Json         @default("{}")
+
+  inventoryItems InventoryItem[]
+  barItems       BarItem[]
+  marketListings MarketListing[]
+}
+
+model InventoryItem {
+  id            String  @id @default(cuid())
+  playerId      String
+  itemTypeId    String
+  quantity      Int     @default(1)
+  equippedSlot  String?
+
+  player   Player   @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  itemType ItemType @relation(fields: [itemTypeId], references: [id], onDelete: Cascade)
+
+  @@unique([playerId, itemTypeId, equippedSlot])
+}
+
+// ---------- Bars ----------
+
+model Bar {
+  id      String @id @default(cuid())
+  name    String
+  type    String
+  ownerId String?
+  rating  Int    @default(0)
+
+  owner Player? @relation(fields: [ownerId], references: [id])
+  items BarItem[]
+}
+
+model BarItem {
+  id                String    @id @default(cuid())
+  barId             String
+  itemTypeId        String
+  quantityAvailable Int
+  maxQuantity       Int
+  nextAvailableAt   DateTime?
+
+  bar      Bar      @relation(fields: [barId], references: [id], onDelete: Cascade)
+  itemType ItemType @relation(fields: [itemTypeId], references: [id], onDelete: Cascade)
+
+  @@unique([barId, itemTypeId])
+}
+
+// ---------- Map / crimes ----------
+
+enum MapType {
+  street
+  city
+}
+
+model MapSpot {
+  id           String  @id @default(cuid())
+  mapType      MapType
+  spotKey      String
+  label        String
+  cashCost     Int     @default(0)
+  staminaCost  Int     @default(0)
+  riskPercent  Int     @default(0)
+  rewardMin    Int     @default(0)
+  rewardMax    Int     @default(0)
+
+  @@unique([mapType, spotKey])
+}
+
+model CrimeLog {
+  id         String   @id @default(cuid())
+  type       String
+  attackerId String
+  victimId   String
+  result     String
+  payload    Json     @default("{}")
+  createdAt  DateTime @default(now())
+
+  attacker Player @relation("attacker", fields: [attackerId], references: [id], onDelete: Cascade)
+  victim   Player @relation("victim", fields: [victimId], references: [id], onDelete: Cascade)
+
+  @@index([attackerId])
+  @@index([victimId])
+}
+
+// ---------- Messaging / social ----------
+
+enum MessageFolder {
+  inbox
+  sent
+  saved
+}
+
+model Message {
+  id          String        @id @default(cuid())
+  senderId    String
+  recipientId String
+  subject     String
+  body        String
+  folder      MessageFolder @default(inbox)
+  readAt      DateTime?
+  createdAt   DateTime      @default(now())
+
+  sender    Player @relation("sender", fields: [senderId], references: [id], onDelete: Cascade)
+  recipient Player @relation("recipient", fields: [recipientId], references: [id], onDelete: Cascade)
+
+  @@index([recipientId])
+  @@index([senderId])
+}
+
+enum FriendshipStatus {
+  pending
+  accepted
+}
+
+model Friendship {
+  id       String           @id @default(cuid())
+  fromId   String
+  toId     String
+  status   FriendshipStatus @default(pending)
+  createdAt DateTime        @default(now())
+
+  from Player @relation("friendshipFrom", fields: [fromId], references: [id], onDelete: Cascade)
+  to   Player @relation("friendshipTo", fields: [toId], references: [id], onDelete: Cascade)
+
+  @@unique([fromId, toId])
+}
+
+// ---------- Quests / tasks / achievements ----------
+
+model Quest {
+  id           String @id @default(cuid())
+  title        String
+  difficulty   Int
+  rewardCash   Int
+  requirements Json
+
+  playerQuests PlayerQuest[]
+}
+
+model PlayerQuest {
+  id         String    @id @default(cuid())
+  playerId   String
+  questId    String
+  progress   Json      @default("{}")
+  acceptedAt DateTime  @default(now())
+  completedAt DateTime?
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  quest  Quest  @relation(fields: [questId], references: [id], onDelete: Cascade)
+}
+
+model DailyTask {
+  id           String @id @default(cuid())
+  type         String
+  description  String
+  target       Int
+  rewardItemId String?
+
+  progress PlayerTaskProgress[]
+}
+
+model PlayerTaskProgress {
+  id       String   @id @default(cuid())
+  playerId String
+  taskId   String
+  date     DateTime @default(now())
+  progress Int      @default(0)
+
+  player Player    @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  task   DailyTask @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  @@unique([playerId, taskId, date])
+}
+
+model Achievement {
+  id          String @id @default(cuid())
+  key         String @unique
+  name        String
+  description String
+
+  playerAchievements PlayerAchievement[]
+}
+
+model PlayerAchievement {
+  id            String   @id @default(cuid())
+  playerId      String
+  achievementId String
+  unlockedAt    DateTime @default(now())
+
+  player      Player      @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  achievement Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+
+  @@unique([playerId, achievementId])
+}
+
+// ---------- Rackets ----------
+
+model Racket {
+  id             String   @id @default(cuid())
+  playerId       String
+  type           String
+  incomeRate     Int
+  lastCollectedAt DateTime @default(now())
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+}
+
+// ---------- Polls / day type ----------
+
+model Poll {
+  id        String   @id @default(cuid())
+  question  String
+  createdAt DateTime @default(now())
+  closesAt  DateTime?
+
+  options PollOption[]
+}
+
+model PollOption {
+  id     String @id @default(cuid())
+  pollId String
+  label  String
+
+  poll  Poll       @relation(fields: [pollId], references: [id], onDelete: Cascade)
+  votes PollVote[]
+}
+
+model PollVote {
+  id       String @id @default(cuid())
+  pollId   String
+  optionId String
+  playerId String
+
+  option PollOption @relation(fields: [optionId], references: [id], onDelete: Cascade)
+  player Player     @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@unique([pollId, playerId])
+}
+
+enum DayType {
+  strength
+  intellect
+  experience
+  sexapeal
+  manufacturer
+  fight
+  smuggler
+}
+
+model DayTypeVote {
+  id       String   @id @default(cuid())
+  dayType  DayType
+  playerId String
+  date     DateTime @default(now())
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@index([date])
+}
+
+// ---------- Bank ----------
+
+enum BankTransactionType {
+  deposit
+  withdraw
+  buy_cash
+  buy_connections
+  loan
+  loan_repay
+}
+
+model BankTransaction {
+  id        String              @id @default(cuid())
+  playerId  String
+  type      BankTransactionType
+  amount    Int
+  createdAt DateTime            @default(now())
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+}
+
+model Loan {
+  id              String    @id @default(cuid())
+  playerId        String
+  principal       Int
+  stakeStrength   Int
+  stakeIntellect  Int
+  dueAt           DateTime
+  repaidAt        DateTime?
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+}
+
+model Safebox {
+  id         String   @id @default(cuid())
+  playerId   String
+  openedAt   DateTime @default(now())
+  cashFound  Int
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+}
+
+// ---------- Jail / police ----------
+
+model JailSentence {
+  id           String   @id @default(cuid())
+  playerId     String   @unique
+  jailedUntil  DateTime
+  rebelsCount  Int      @default(0)
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+}
+
+model JailChatMessage {
+  id        String   @id @default(cuid())
+  playerId  String
+  body      String
+  createdAt DateTime @default(now())
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@index([createdAt])
+}
+
+model Ambush {
+  id           String   @id @default(cuid())
+  setterId     String
+  targetId     String
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+
+  setter Player @relation("ambushSetter", fields: [setterId], references: [id], onDelete: Cascade)
+  target Player @relation("ambushTarget", fields: [targetId], references: [id], onDelete: Cascade)
+}
+
+// ---------- Extras / boosters ----------
+
+model Extra {
+  id            String @id @default(cuid())
+  extraId       Int    @unique
+  name          String
+  description   String
+  priceCredits  Int
+  durationHours Int
+
+  activePlayers PlayerActiveExtra[]
+}
+
+model PlayerActiveExtra {
+  id         String   @id @default(cuid())
+  playerId   String
+  extraId    String
+  expiresAt  DateTime
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  extra  Extra  @relation(fields: [extraId], references: [id], onDelete: Cascade)
+}
+
+// ---------- News ----------
+
+model NewsPost {
+  id        String   @id @default(cuid())
+  title     String
+  body      String
+  createdAt DateTime @default(now())
+}
+
+model ClassifiedAd {
+  id        String   @id @default(cuid())
+  playerId  String
+  body      String
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+}
+
+// ---------- Seasons / hall of fame ----------
+
+model Season {
+  id        String   @id @default(cuid())
+  label     String
+  startsAt  DateTime
+  endsAt    DateTime
+
+  winners SeasonWinner[]
+}
+
+model SeasonWinner {
+  id       String @id @default(cuid())
+  seasonId String
+  category String
+  rank     Int
+  playerId String
+  prize    String?
+
+  season Season @relation(fields: [seasonId], references: [id], onDelete: Cascade)
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+}
+
+// ---------- Market ----------
+
+model MarketListing {
+  id         String   @id @default(cuid())
+  sellerId   String
+  itemTypeId String
+  quantity   Int
+  price      Int
+  createdAt  DateTime @default(now())
+
+  seller   Player   @relation(fields: [sellerId], references: [id], onDelete: Cascade)
+  itemType ItemType @relation(fields: [itemTypeId], references: [id], onDelete: Cascade)
+
+  @@index([itemTypeId])
+}
