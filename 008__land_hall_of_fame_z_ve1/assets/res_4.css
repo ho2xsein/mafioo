@@ -1,0 +1,323 @@
+.bg-wall {
+    background: url("img/background_hall-of-fame.jpg") no-repeat scroll center top #000;
+    min-height: 664px;
+}
+
+.footer-links {
+    position: static;
+    margin-top: 0;
+}
+#footer-logo {
+    top: 10px;
+}
+
+div.page {
+    width: 900px;
+    height: auto;
+	min-height: 580px;
+    margin: 15px auto;
+    background: rgba(17, 17, 17, 0.75);
+    overflow: visible;
+}
+
+div.page h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#season-jumper {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    z-index: 100 !important;
+    width: 240px;
+    height: 35px;
+}
+
+#season-jumper-selected {
+    display: inline-block;
+    cursor: pointer;
+    color: #fff !important;
+    background: transparent url('img3/season-dropdown.png') 0 0 no-repeat;
+    padding: 5px 35px 5px 5px;
+    margin: 0;
+    font-size: 9pt !important;
+    line-height: 9pt;
+    text-align: center;
+    width: 200px;
+}
+#season-jumper-selected:hover { background-position: 0 -53px;}
+#season-jumper-list {
+    position: absolute;
+    background-color: #000;
+    display: none;
+    margin: 2px 0;
+    max-height: 400px;
+    overflow-x: hidden;
+    border-radius: 5px;
+}
+#season-jumper-list a {
+    color: #edd3b8;
+    text-align: center;
+    display: block;
+    padding: 3px 5px;
+    width: 230px;
+    margin: 5px 0;
+}
+#season-jumper-list a:hover {
+    background-color:#222;
+}
+
+.type-links {
+    color: #edd3b8;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.type-links > a {
+    display: inline-block;
+    color: #edd3b8;
+}
+.type-links > a.selected {
+    color: #fff;
+    font-weight: bold;
+}
+
+.podium {
+    width: 100%;
+    height: 200px;
+    background: transparent url('img3/podium.png') center bottom no-repeat;
+    margin: 5px 0;
+    position: relative;
+}
+.top3-player {
+    position: absolute;
+    width: 180px;
+}
+.top3-player .info-row {
+    text-align: center;
+}
+.top3-player .info-row span {
+    display: inline-block;
+}
+.top3-player.poduim-position-1 {
+    bottom: 155px;
+    left: 355px;
+}
+.top3-player.poduim-position-2 {
+    bottom: 115px;
+    left: 185px;
+}
+.top3-player.poduim-position-3 {
+    bottom: 105px;
+    left: 538px;
+}
+
+table.default, 
+table.lists-wrapper {
+    width: 100%;
+}
+
+.gang-list, 
+.gang-members-list {
+    width: 50%;
+}
+
+.gang-list tr {
+    cursor: pointer;
+}
+
+.gang-list tr.selected {
+    background: #333;
+}
+
+.gang-members-list table {
+    display: none;
+}
+.gang-members-list table.selected {
+    display: table;
+}
+
+.bld-standings {
+    text-align: center;
+}
+
+.bld-standings .bld-standing {
+    display: inline-block;
+}
+
+.season-dropdown {
+  position: relative;
+  width: 200px;
+  font-family: Arial, sans-serif;
+  user-select: none;
+  color: #f5c94c;
+  z-index: 100;
+  text-align: center;
+  float: left;
+}
+
+.season-selected {
+  background: #2b1f0a;
+  padding: 8px 12px;
+  border: 1px solid #5a410d;
+  cursor: pointer;
+  border-radius: 4px;
+  position: relative;
+  text-align: center;
+}
+
+.season-selected .arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #f5c94c;
+  font-size: 12px;
+}
+
+.season-options {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background: #000;
+  border: 1px solid #5a410d;
+  border-top: none;
+  max-height: 300px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.season-options li {
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #f5c94c;
+}
+
+.season-options li:hover {
+  background: #3a2a0a;
+}
+
+.season-dropdown.open .season-options {
+  display: block;
+}
+.season-dropdown-container {
+    width: 200px;
+    float: left;
+    margin-left: 20px;
+}
+.hof-categories-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.hof-category-btn {
+  width: 87px;
+  text-align: center;
+  background: #2b1f0a;
+  color: #f5c94c;
+  padding: 10px 5px;
+  border: 1px solid #5a410d;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: bold;
+}
+
+.hof-category-btn:hover {
+  background: #3a2a0a;
+}
+
+.hof-category-btn.active {
+  background: #f5c94c;
+  color: #000;
+  border-color: #f5c94c;
+}
+
+.hof-all-contents {
+  margin-top: 20px;
+}
+
+.hof-category-content {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+#hof-content {
+    float: left;
+}
+.hof-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #eee;
+    background: #111;
+}
+
+.hof-table th,
+.hof-table td {
+    padding: 6px 10px;
+    border: 1px solid #333;
+    text-align: left;
+}
+
+.hof-table th {
+    background: #222;
+    color: #f5c94c;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.dataTables_wrapper .dataTables_paginate a {
+    color: #f5c94c !important;
+    background: #222 !important;
+    border: 1px solid #444;
+    margin: 0 2px;
+    padding: 3px 6px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.dataTables_wrapper .dataTables_paginate a.current {
+    background: #f5c94c !important;
+    color: #000 !important;
+}
+.hall-title {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 15px;
+    color: #ffbb00;
+    border-bottom: 2px dotted #444;
+}
+
+.hall-title h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #f5c94c;
+    flex-shrink: 0;
+}
+
+.hall-title .season-dropdown,
+.hall-title .season-links {
+    flex-shrink: 0;
+}
+
+.hall-title > * {
+    display: inline-block;
+}

@@ -1,0 +1,30 @@
+*{cursor:url(cursor/c-arrow.cur),default !important;}
+html>body *{cursor:url(cursor/c-arrow.cur),default !important;}
+
+
+input.txt,
+textarea
+{cursor:url(cursor/c-text.cur),default !important;}
+
+html>body input.txt,
+html>body textarea
+{cursor:url(cursor/c-text.cur),default !important;}
+
+html>body .btn,
+html>body .btnw,
+html>body .btn-row,
+html>body .btn-tbl {
+	cursor:url(cursor/c-link2.cur),pointer !important;
+}
+
+a *, 
+a
+{cursor:url(cursor/c-link2.cur),pointer !important;}
+
+html>body a *, 
+html>body a
+{cursor:url(cursor/c-link2.cur),pointer !important;}
+
+.cursor-default { background: transparent url(cursor/c-arrow.cur) 0 4px;	padding-left:20px;	height:32px; font-size:16pt;}
+.cursor-link	{ background: transparent url(cursor/c-link2.cur) 0 4px;	padding-left:20px;	height:32px; font-size:16pt;}
+.cursor-text	{ background: transparent url(cursor/c-text.cur) 0 4px;	padding-left:20px;	height:32px; font-size:16pt;}

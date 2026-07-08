@@ -1,0 +1,141 @@
+/* user */
+.u-on{			padding-left:16px !important;	background:url(u/u-on.gif) 0 50% no-repeat;	}
+.u-on-g{		padding-left:16px !important;	background:url(u/u-on-g.gif) 0 50% no-repeat;	}
+.u-of{			padding-left:16px !important;	background:url(u/u-of.gif) 0 50% no-repeat;	}
+.u-er{			padding-left:16px !important;	background:url(u/u-er.gif) 0 50% no-repeat;	}
+.u-jl{			padding-left:16px !important;	background:url(u/u-jl.gif) 0 50% no-repeat;	}
+.u-cop{			padding-left:16px !important;	background:url(u/u-cop.gif) 0 50% no-repeat;	}
+.u-cop-g{		padding-left:16px !important;	background:url(u/u-cop-g.gif) 0 50% no-repeat;	}
+.u-businessman{		padding-left:16px !important;	background:url(u/u-businessman.png) 0 50% no-repeat;	}
+.u-fighter{		padding-left:16px !important;	background:url(u/u-fighter.png) 0 50% no-repeat;	}
+
+.fu-on{			padding-left:16px !important;	background:url(u/fu-on.gif) 0 50% no-repeat;	}
+.fu-on-g{		padding-left:16px !important;	background:url(u/fu-on-g.gif) 0 50% no-repeat;	}
+.fu-of{			padding-left:16px !important;	background:url(u/fu-of.gif) 0 50% no-repeat;	}
+.fu-er{			padding-left:16px !important;	background:url(u/fu-er.gif) 0 50% no-repeat;	}
+.fu-jl{			padding-left:16px !important;	background:url(u/fu-jl.gif) 0 50% no-repeat;	}
+.fu-cop{		padding-left:16px !important;	background:url(u/fu-cop.gif) 0 50% no-repeat;	}
+.fu-cop-g{		padding-left:16px !important;	background:url(u/fu-cop-g.gif) 0 50% no-repeat;	}
+
+/* VIP user */
+.vip-on{		padding-left:16px !important;	background:url(u/vip-on.gif) 0 50% no-repeat;	}
+.vip-on-g{		padding-left:16px !important;	background:url(u/vip-on-g.gif) 0 50% no-repeat;	}
+.vip-of{		padding-left:16px !important;	background:url(u/vip-of.gif) 0 50% no-repeat;	}
+.vip-er{		padding-left:16px !important;	background:url(u/vip-er.gif) 0 50% no-repeat;	}
+.vip-jl{		padding-left:16px !important;	background:url(u/vip-jl.gif) 0 50% no-repeat;	}
+.vip-cop{		padding-left:16px !important;	background:url(u/vip-cop.gif) 0 50% no-repeat;	}
+.vip-cop-g{		padding-left:16px !important;	background:url(u/vip-cop-g.gif) 0 50% no-repeat;}
+
+.fvip-on{		padding-left:16px !important;	background:url(u/fvip-on.gif) 0 50% no-repeat;	}
+.fvip-on-g{		padding-left:16px !important;	background:url(u/fvip-on-g.gif) 0 50% no-repeat;}
+.fvip-of{		padding-left:16px !important;	background:url(u/fvip-of.gif) 0 50% no-repeat;	}
+.fvip-er{		padding-left:16px !important;	background:url(u/fvip-er.gif) 0 50% no-repeat;	}
+.fvip-jl{		padding-left:16px !important;	background:url(u/fvip-jl.gif) 0 50% no-repeat;	}
+.fvip-cop{		padding-left:16px !important;	background:url(u/fvip-cop.gif) 0 50% no-repeat;	}
+.fvip-cop-g{	padding-left:16px !important;	background:url(u/fvip-cop-g.gif) 0 50% no-repeat;}
+
+/* gang boss */
+.gboss-on{		padding-left:16px !important;	background:url(u/gboss-on.gif) 0 50% no-repeat;		}
+.gboss-on-g{	padding-left:16px !important;	background:url(u/gboss-on-g.gif) 0 50% no-repeat;	}
+.gboss-of{		padding-left:16px !important;	background:url(u/gboss-of.gif) 0 50% no-repeat;		}
+.gboss-er{		padding-left:16px !important;	background:url(u/gboss-on.gif) 0 50% no-repeat;		}
+.gboss-jl{		padding-left:16px !important;	background:url(u/gboss-on.gif) 0 50% no-repeat;		}
+.gboss-cop{		padding-left:16px !important;	background:url(u/gboss-on.gif) 0 50% no-repeat;		}
+.gboss-cop-g{	padding-left:16px !important;	background:url(u/gboss-on-g.gif) 0 50% no-repeat;	}
+
+.fgboss-on{		padding-left:16px !important;	background:url(u/fgboss-on.gif) 0 50% no-repeat;	}
+.fgboss-on-g{	padding-left:16px !important;	background:url(u/fgboss-on-g.gif) 0 50% no-repeat;	}
+.fgboss-of{		padding-left:16px !important;	background:url(u/fgboss-of.gif) 0 50% no-repeat;	}
+.fgboss-er{		padding-left:16px !important;	background:url(u/fgboss-on.gif) 0 50% no-repeat;	}
+.fgboss-jl{		padding-left:16px !important;	background:url(u/fgboss-on.gif) 0 50% no-repeat;	}
+.fgboss-cop{	padding-left:16px !important;	background:url(u/fgboss-on.gif) 0 50% no-repeat;	}
+.fgboss-cop-g{	padding-left:16px !important;	background:url(u/fgboss-on.gif) 0 50% no-repeat;	}
+
+/* vip gang boss */
+.vip-gboss-on{		padding-left:16px !important;	background:url(u/vip-gboss-on.gif) 0 50% no-repeat;		}
+.vip-gboss-on-g{	padding-left:16px !important;	background:url(u/vip-gboss-on-g.gif) 0 50% no-repeat;	}
+.vip-gboss-of{		padding-left:16px !important;	background:url(u/vip-gboss-of.gif) 0 50% no-repeat;		}
+.vip-gboss-er{		padding-left:16px !important;	background:url(u/vip-gboss-on.gif) 0 50% no-repeat;		}
+.vip-gboss-jl{		padding-left:16px !important;	background:url(u/vip-gboss-on.gif) 0 50% no-repeat;		}
+.vip-gboss-cop{		padding-left:16px !important;	background:url(u/vip-gboss-on.gif) 0 50% no-repeat;		}
+.vip-gboss-cop-g{	padding-left:16px !important;	background:url(u/vip-gboss-on-g.gif) 0 50% no-repeat;	}
+
+.fvip-gboss-on{		padding-left:16px !important;	background:url(u/fvip-gboss-on.gif) 0 50% no-repeat;	}
+.fvip-gboss-on-g{	padding-left:16px !important;	background:url(u/fvip-gboss-on-g.gif) 0 50% no-repeat;	}
+.fvip-gboss-of{		padding-left:16px !important;	background:url(u/fvip-gboss-of.gif) 0 50% no-repeat;	}
+.fvip-gboss-er{		padding-left:16px !important;	background:url(u/fvip-gboss-on.gif) 0 50% no-repeat;	}
+.fvip-gboss-jl{		padding-left:16px !important;	background:url(u/fvip-gboss-on.gif) 0 50% no-repeat;	}
+.fvip-gboss-cop{	padding-left:16px !important;	background:url(u/fvip-gboss-on.gif) 0 50% no-repeat;	}
+.fvip-gboss-cop-g{	padding-left:16px !important;	background:url(u/fvip-gboss-on-g.gif) 0 50% no-repeat;	}
+
+/* root */
+.root-on{		padding-left:16px !important;	background:url(u/root-on.gif) 0 50% no-repeat;	}
+.root-of{		padding-left:16px !important;	background:url(u/root-of.gif) 0 50% no-repeat;	}
+.root-er{		padding-left:16px !important;	background:url(u/root-on.gif) 0 50% no-repeat;	}
+.root-jl{		padding-left:16px !important;	background:url(u/root-on.gif) 0 50% no-repeat;	}
+.root-cop{		padding-left:16px !important;	background:url(u/root-cop.gif) 0 50% no-repeat;	}
+
+.froot-on{		padding-left:16px !important;	background:url(u/froot-on.gif) 0 50% no-repeat;	}
+.froot-of{		padding-left:16px !important;	background:url(u/froot-of.gif) 0 50% no-repeat;	}
+.froot-er{		padding-left:16px !important;	background:url(u/froot-on.gif) 0 50% no-repeat;	}
+.froot-jl{		padding-left:16px !important;	background:url(u/froot-on.gif) 0 50% no-repeat;	}
+.froot-cop{		padding-left:16px !important;	background:url(u/froot-cop.gif) 0 50% no-repeat;}
+
+/* admin */
+.adm-on{		padding-left:16px !important;	background:url(u/adm-on.gif) 0 50% no-repeat;	}
+.adm-of{		padding-left:16px !important;	background:url(u/adm-of.gif) 0 50% no-repeat;	}
+.adm-er{		padding-left:16px !important;	background:url(u/adm-on.gif) 0 50% no-repeat;	}
+.adm-jl{		padding-left:16px !important;	background:url(u/adm-on.gif) 0 50% no-repeat;	}
+.adm-cop{		padding-left:16px !important;	background:url(u/adm-cop.gif) 0 50% no-repeat;	}
+
+.fadm-on{		padding-left:16px !important;	background:url(u/fadm-on.gif) 0 50% no-repeat;	}
+.fadm-of{		padding-left:16px !important;	background:url(u/fadm-of.gif) 0 50% no-repeat;	}
+.fadm-er{		padding-left:16px !important;	background:url(u/fadm-on.gif) 0 50% no-repeat;	}
+.fadm-jl{		padding-left:16px !important;	background:url(u/fadm-on.gif) 0 50% no-repeat;	}
+.fadm-cop{		padding-left:16px !important;	background:url(u/fadm-cop.gif) 0 50% no-repeat;	}
+
+/* moderator */
+.mod-on{		padding-left:16px !important;	background:url(u/mod-on.gif) 0 50% no-repeat;	}
+.mod-of{		padding-left:16px !important;	background:url(u/mod-of.gif) 0 50% no-repeat;	}
+.mod-er{		padding-left:16px !important;	background:url(u/mod-on.gif) 0 50% no-repeat;	}
+.mod-jl{		padding-left:16px !important;	background:url(u/mod-on.gif) 0 50% no-repeat;	}
+.mod-cop{		padding-left:16px !important;	background:url(u/mod-cop.gif) 0 50% no-repeat;	}
+
+.fmod-on{		padding-left:16px !important;	background:url(u/fmod-on.gif) 0 50% no-repeat;	}
+.fmod-of{		padding-left:16px !important;	background:url(u/fmod-of.gif) 0 50% no-repeat;	}
+.fmod-er{		padding-left:16px !important;	background:url(u/fmod-on.gif) 0 50% no-repeat;	}
+.fmod-jl{		padding-left:16px !important;	background:url(u/fmod-on.gif) 0 50% no-repeat;	}
+.fmod-cop{		padding-left:16px !important;	background:url(u/fmod-cop.gif) 0 50% no-repeat;	}
+
+/* chat moderator */
+.cmod-on{		padding-left:16px !important;	background:url(u/cmod-on.gif) 0 50% no-repeat;	}
+.cmod-of{		padding-left:16px !important;	background:url(u/cmod-of.gif) 0 50% no-repeat;	}
+.cmod-er{		padding-left:16px !important;	background:url(u/cmod-on.gif) 0 50% no-repeat;	}
+.cmod-jl{		padding-left:16px !important;	background:url(u/cmod-on.gif) 0 50% no-repeat;	}
+.cmod-cop{		padding-left:16px !important;	background:url(u/cmod-cop.gif) 0 50% no-repeat; }
+
+.fcmod-on{		padding-left:16px !important;	background:url(u/fcmod-on.gif) 0 50% no-repeat;	}
+.fcmod-of{		padding-left:16px !important;	background:url(u/fcmod-of.gif) 0 50% no-repeat;	}
+.fcmod-er{		padding-left:16px !important;	background:url(u/fcmod-on.gif) 0 50% no-repeat;	}
+.fcmod-jl{		padding-left:16px !important;	background:url(u/fcmod-on.gif) 0 50% no-repeat;	}
+.fcmod-cop{		padding-left:16px !important;	background:url(u/fcmod-cop.gif) 0 50% no-repeat;}
+
+/* developer */
+.dev-on {		padding-left:16px !important;	background:url(u/dev-on-hammer.gif) 0 50% no-repeat;		}
+.dev-cop {		padding-left:16px !important;	background:url(u/dev-on-hammer.gif) 0 50% no-repeat;		}
+.dev-er {		padding-left:16px !important;	background:url(u/dev-on-hammer.gif) 0 50% no-repeat;		}
+.dev-jl {		padding-left:16px !important;	background:url(u/dev-on-hammer.gif) 0 50% no-repeat;		}
+.dev-of{		padding-left:16px !important;	background:url(u/dev-of-hammer.gif) 0 50% no-repeat;		}
+.gang_attack{           padding-left:16px!important;    background:url(icon/gang_attack.gif) 0 50% no-repeat;           }
+
+.cop-on{		padding-left:16px !important;	background:url(u/cop.gif) 0 50% no-repeat;	}
+
+th.root-on{		background-position:0 50% ;	}
+th.u-on{		background-position:0 50% ;	}
+
+.uroot {		padding-left:16px !important;	background:url(u/root-on.gif) 0 50% no-repeat;	}
+.ucop {			padding-left:16px !important;	background:url(u/u-cop.gif) 0 50% no-repeat;	}
+.uon {			padding-left:16px !important;	background:url(u/u-on.gif) 0 50% no-repeat;	}
+.uof {			padding-left:16px !important;	background:url(u/u-of.gif) 0 50% no-repeat;	}
+
+.uwidth {		width:135px !important;}

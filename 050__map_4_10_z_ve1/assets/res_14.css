@@ -1,0 +1,1422 @@
+/*
+Stilove na menu-to
+--------------------------------------------------
+*/
+img { vertical-align:middle; }
+#menus-container {
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:2000;
+	}
+
+/* contex table menu*/
+.cmenu {
+	visibility:hidden;		
+	position:absolute;
+	left:0;
+	top:0;
+	margin:0;
+	padding:0;
+	background-color:#888;
+	border:1px solid #333;
+	z-index:12000;
+	}
+.cmenu tr {min-width:200px;}
+.cmenu th,
+.cmenu td a{
+	padding:4px 5px 4px 5px;
+	color:white;
+	font:normal 8pt Tahoma,'MS Sans Serif',sans-serif;
+	text-align:left;
+	white-space:nowrap;
+	background-repeat:no-repeat;
+	cursor:pointer;
+	}
+.cmenu th {
+	padding:0;
+	font-weight:bold;
+	}
+.cmenu th.title {
+	margin:0;
+	padding:5px;
+	color:#fc0;
+	font:bold 9pt Arial,Tahoma,'MS Sans Serif',sans-serif;
+	letter-spacing:1px;
+	white-space:nowrap;
+	background-color:#222;
+	cursor:default;
+	}
+
+.cmenu th.title small{
+	color:#999 !important;
+	font:normal 7.5pt Tahoma !important;
+	letter-spacing:0px !important;
+	font-style:italic !important;
+	}
+
+
+.cmenu th a:link,
+.cmenu th a:visited {
+	border:0;
+	margin:0;
+	display:block;
+	padding:4px 20px 4px 5px;
+	color:white;
+	text-decoration:none;
+	}
+.cmenu th a:hover {}
+
+.cmenu th.title a:link,
+.cmenu th.title a:visited 
+{
+	padding:inherit;
+	color:inherit;
+}
+
+/* Живот, Стамина, Риск, Пари */
+td.st,td.at,td.rs,td.ch,td.rsp,td.gr,td.tox {
+	background-position:0 50%;
+	background-repeat:no-repeat;
+	font-size: 7.5pt !important;
+	font-family: Tahoma, Verdana;
+	padding-left:16px;
+/*		letter-spacing:-1px;*/
+	color:white;
+	}
+a.st {background-image:url(icon/stamina.gif); background-position:0 50%; padding-left:16px !important;}
+a.ch {background-image:url(icon/bill2.gif); background-position:0 60%; padding-left:16px !important;}
+a.rs {background-image:url(icon/siren.gif); background-position:0 50%; padding-left:16px !important;}
+a.rsp {background-image:url(icon/star2.gif); background-position:0 50%; padding-left:16px !important; }
+a.gr {background-image:url(icon/grenade.gif); background-position:0 50%; padding-left:14px !important; }
+
+a.st,a.rs,a.ch,a.rsp,a.gr{
+	background-repeat:no-repeat;
+	font-size: 7.5pt !important;
+	font-family: Tahoma, Verdana;
+	color:white;
+	display:block;
+}
+
+td.tip,th.dstr,th.upg {
+	padding-left:16px;
+	background-position:2% 50%;
+	background-repeat:no-repeat;
+	color:white;
+	}
+td.st {background-image:url(icon/stamina.gif); padding-left:14px; }/*padding-a trqbva da go ima i tuk zaradi EXPLORER*/
+td.at {background-image:url(icon/flame2.gif); padding-left:14px; }
+td.tox {background-image:url(icon/biohazard.gif); padding-left:14px; }
+td.gr {background-image:url(icon/grenade.gif); padding-left:14px; }
+td.rs {background-image:url(icon/siren.gif); padding-left:16px; }
+td.rsp {background-image:url(icon/star2.gif); padding-left:16px; }
+td.ch {background-image:url(icon/bill2.gif); background-position:0 60%;}
+td.nfo {padding-left:17px;  background:transparent url(icon/tip3.gif) 1% 50% no-repeat;}
+th.dstr {background-image:url(icon/bomb.gif);}
+th.upg {background-image:url(icon/wizard.gif);}
+
+
+.obj_flag {
+	overflow:hidden;
+
+	position:absolute;
+	width:40px;
+	height:64px;
+	left:77px; 
+	bottom:78px;
+	display:block;	
+	overflow:hidden;
+	background-image: url(map/obj_flags.gif);
+	background-repeat:no-repeat;
+
+	z-index:2001;
+}
+.obj_my		{ background-position: 0px		0px; }
+.obj_gang	{ background-position: -40px	0px; }
+.obj_friends{ background-position: -80px	0px; }
+.obj_none	{ background-position: -220px	0px; }
+.obj_city	{ background-position: -120px	0px; }
+.obj_other	{ background-position: -160px	0px; }
+.obj_enemy	{ background-position: -200px	0px; }
+
+/* minimap table variant*/
+.minimap td.mmmy,
+.minimap td.mmg,
+.minimap td.mmf,
+.minimap td.mmn,
+.minimap td.mmc,
+.minimap td.mme,
+.minimap td.mmo
+{
+	width:6px;
+	height:6px;
+	font-size:6px !important;
+	overflow:hidden;
+	/*cursor:arrow !important;*/
+}
+.mmmy { background-color:#6c0 !important; } /* mine */
+.mmg { background-color:#09c !important; } /* my gang */
+.mmf { background-color:#90c !important; } /* city */
+.mmn { background-color:#000 !important; 	/*	cursor:default !important;*/ } /* missing building */
+.mmc { background-color:#444 !important; } /* city / non-slaved buildings */
+.mme { background-color:#f00 !important; } /* enemy-gang */
+.mmo { background-color:#fa0 !important; } /* other gangster */
+
+
+.minimap td,
+.minimap td table td,
+.minimap td table {
+	padding: 0;
+	margin: 0;
+}
+.minimap td table td{
+	margin: 0;
+}
+.minimap td div {
+	display: block; 
+	height:15px;
+	width:15px;
+	position:relative;
+}
+
+table.block {
+	width: 9px;
+}
+.inline { display:inline;}
+.abs {
+	display:block;
+	position:absolute;
+}
+.mid {
+	position:relative;
+	vertical-align:middle;
+}
+.no-img {
+	background: none;
+	background-image: none;
+}
+
+/*
+Map Object Styles
+--------------------------------------------------
+*/
+.map_head {
+	position:absolute;
+	top:0;
+	left:0;
+	font-size:8pt;
+	padding:1px 2px;
+	background-color:#111;
+	height:64px;
+	z-index:2000;
+	/*
+	opacity:.9;
+	filter:alpha(opacity=90);
+	*/
+	}
+html > body .map_head{width:auto;}
+.map_head h2.map {
+	padding-left:17px !important;
+	background:url(icon/street.gif) 0 2px no-repeat;
+	padding-bottom:0;
+	padding-top:0;
+	margin:0;
+}
+.map_head img.avt {
+	float:left;
+	margin:1px 4px 1px 0;
+	padding:1px;
+	vertical-align:middle;
+	border:1px solid #666;
+	background-color:#333;
+	}
+html > body .map_head_right{width:140px;}
+.map_head_right {
+	right:0px;
+	left:auto;
+	height:40px;
+}
+.map_head_right td {
+	white-space:nowrap;
+}
+.map_head_right .item_pad {
+	width:34px;
+	height:34px;
+}
+.map_head_right .pad_item {
+	width:30px;
+	height:30px;
+}
+.private-map,
+.private-map-10,
+.gang-map,
+.private-map-winter,
+.private-map-10-winter
+{
+	overflow:hidden;
+	position:relative;
+	margin:0;
+	padding:0;
+	width:630px;
+	height:376px;
+	background:url('map/map_1024.gif') 0 -2px no-repeat transparent;
+	/*background:transparent url('map/map_winter.gif') 0 -2px no-repeat;*/
+	border:1px solid #444;
+	z-index:1
+	}
+.private-map-10 {		background:transparent url('map/map_10_1024.gif') 0 -2px no-repeat;	}
+.private-map-winter {	background:transparent url('map/map_1024_winter.gif') 0 -2px no-repeat;	}
+.private-map-10-winter{	background:transparent url('map/map_10_1024_winter.gif') 0 -2px no-repeat;	}
+.gang-map {		background:transparent url('map/gang/gang_street.png?v=1') 0 -2px no-repeat;	}
+
+/*
+Спотове на сградите
+--------------------------------------------------
+*/
+
+.spot0  { left:81px;	bottom:229px;	z-index:10; eborder: 1px solid red;}
+.spot1  { left:-8px;	bottom:184px;	z-index:20; eborder: 1px solid red;}
+.spot2  { left:462px;	bottom:239px;	z-index:30; eborder: 1px solid red;}
+.spot3  { left:261px;	bottom:139px;	z-index:40; eborder: 1px solid red;}
+.spot4  { left:172px;	bottom:94px;	z-index:50; eborder: 1px solid red;}
+.spot5  { left:82px;	bottom:49px;	z-index:60; eborder: 1px solid red;}
+.spot6  { left:-8px;	bottom:4px;		z-index:70; eborder: 1px solid red;}
+.spot7  { left:462px;	bottom:9px;		z-index:80; eborder: 1px solid red;}
+.spot8  { left:371px;	bottom:-36px;	z-index:90; eborder: 1px solid red;}
+
+
+.gang-map .spot0  { left:87px;	bottom:228px;	z-index:10; eborder: 1px solid red;}
+.gang-map .spot1  { left:-6px;	bottom:181px;	z-index:20; eborder: 1px solid red;}
+.gang-map .spot2  { left:471px;	bottom:217px;	z-index:30; eborder: 1px solid red;}
+.gang-map .spot3  { left:270px;	bottom:136px;	z-index:40; eborder: 1px solid red;}
+.gang-map .spot4  { left:173px;	bottom:92px;	z-index:50; eborder: 1px solid red;}
+.gang-map .spot5  { left:-7px;	bottom:5px;	z-index:60; eborder: 1px solid red;}
+.gang-map .spot6  { left:476px;	bottom:28px;		z-index:70; eborder: 1px solid red;}
+.gang-map .spot7  { left:380px;	bottom:-19px;		z-index:80; eborder: 1px solid red;}
+
+/*
+Обекти на картата
+--------------------------------------------------
+*/
+/* Празен, личен парцел и заведения */
+.ground,		.ground_over,
+.myground,		.myground_over,
+.coming_soon,		.coming_soon_over,
+.vault,                 .vault_over,
+.warehouse,             .warehouse_over,
+.hq_0,                  .hq_0_over,
+.hq_1,                  .hq_1_over,
+.hq_2,                  .hq_2_over,
+.hq_3,                  .hq_3_over,
+.hq_4,                  .hq_4_over,
+.hq_5,                  .hq_5_over,
+.mycasino,		.mycasino_over,	td div.mycasino,	.tooltip div.mycasino,
+.hotel,			.hotel_over,	td div.hotel,		.tooltip div.hotel,
+.hotel_man,		.hotel_man_over,td div.hotel_man,	.tooltip div.hotel_man,
+.laboratory,		.laboratory_over,td div.laboratory,	.tooltip div.laboratory,
+.cafe,			.cafe_over,		td div.cafe,		.tooltip div.cafe,
+.club,			.club_over,		td div.club,		.tooltip div.club,
+.club_man,		.club_man_over,	td div.club_man,	.tooltip div.club_man,
+.mycasino,		.mycasino_over,	td div.mycasino,	.tooltip div.mycasino
+{
+	overflow:hidden;
+	display:block;
+	position:absolute;
+	width:145px;
+	height:170px;
+	background-position:0 0;
+	background-color:transparent;
+	background-repeat:no-repeat;
+	/*border:red solid 1px;*/
+}
+
+.myground, .myground_over {
+	height:124px;
+	width:152px;
+	background-position:-15px -46px;
+	}
+.myground_over {background-position:-185px -46px;}
+.myground,.myground_over {background-image:url('map/01.gif');}
+
+.ground,.ground_over{
+	height:160px;
+	width:152px;
+	background-position:-16px -19px;
+	}
+.ground_over	{background-position:-186px -19px;}
+.ground,.ground_over {background-image:url('map/00_territory.gif');}
+
+
+.coming_soon,.coming_soon_over{
+	height:160px;
+	width:152px;
+	background-position:-15px -33px;
+	}
+.coming_soon_over	{background-position:-210px -33px; filter: brightness(1.4);}
+.coming_soon,.coming_soon_over {background-image:url('map/gang/gang_coming_soon.png');}
+
+.vault,.vault_over{
+	height:170px;
+	width:152px;
+	background-position:-15px -23px;
+	}
+.vault_over	{background-position:-210px -23px; filter: brightness(1.4);}
+.vault,.vault_over {background-image:url('map/gang/gang_vault.png');}
+
+.warehouse,.warehouse_over{
+	height:170px;
+	width:152px;
+	background-position:-15px -23px;
+	}
+.warehouse_over	{background-position:-210px -25px; filter: brightness(1.4);}
+.warehouse,.warehouse_over {background-image:url('map/gang/gang_warehouse.png');}
+
+.hq_0,.hq_0_over {
+	height:160px;
+	width:152px;
+	background-position:-15px -33px;
+        filter: brightness(0.9);
+	}
+.hq_0_over	{background-position:-210px -33px; filter: brightness(1.2);}
+.hq_0,.hq_0_over {background-image:url('map/gang/hq_0.png'); }
+
+.hq_1,.hq_1_over {
+	height:160px;
+	width:152px;
+	background-position:-14px -33px;
+        filter: brightness(0.9);
+	}
+.hq_1_over	{background-position:-210px -34px; filter: brightness(1.2);}
+.hq_1,.hq_1_over {background-image:url('map/gang/hq_1.png'); }
+
+.hq_2,.hq_2_over {
+	height:170px;
+	width:152px;
+	background-position:-15px -24px;
+        filter: brightness(0.9);
+	}
+.hq_2_over	{background-position:-210px -26px; filter: brightness(1.2);}
+.hq_2,.hq_2_over {background-image:url('map/gang/hq_2.png'); }
+
+.hq_3,.hq_3_over {
+	height:160px;
+	width:152px;
+	background-position:-14px -33px;
+        filter: brightness(0.9);
+	}
+.hq_3_over	{background-position:-210px -34px; filter: brightness(1.2);}
+.hq_3,.hq_3_over {background-image:url('map/gang/hq_3.png'); }
+
+.hq_4,.hq_4_over {
+	height:160px;
+	width:152px;
+	background-position:-14px -33px;
+        filter: brightness(0.9);
+	}
+.hq_4_over	{background-position:-210px -34px; filter: brightness(1.2);}
+.hq_4,.hq_4_over {background-image:url('map/gang/hq_4.png'); }
+
+.hq_5,.hq_5_over {
+	height:190px;
+	width:152px;
+	background-position:-15px -8px;
+        filter: brightness(0.9);
+	}
+.hq_5_over	{background-position:-211px -9px; filter: brightness(1.2);}
+.hq_5,.hq_5_over {background-image:url('map/gang/hq_5.png'); }
+
+.cafe, .cafe_over, td .cafe, .tooltip .cafe
+	{
+	height:157px;
+	width:154px;
+	background-position:-15px -18px;
+	background-image:url('map/10.gif');
+	}
+.cafe_over {background-position:-185px -18px;}
+
+.club,.club_over{	background-image:url('map/12.gif');	width:154px;	height:168px;	background-position:-15px -2px;	}
+.club_man, .club_man_over{	background-image:url('map/12_man.gif');	width:154px;	height:168px;	background-position:-15px -2px;	}
+.club_over, .club_man	{background-position:-185px -2px;}
+
+.hotel,.hotel_over{ background-image:url('map/13.gif');	width:156px;	background-position:-15px 0px;	}
+.hotel_man,.hotel_man_over { background-image:url('map/13_man.gif');	width:156px;	background-position:-15px 0px;	}
+.hotel_over,	.hotel_man_over {background-position:-185px 0px;}
+.laboratory,.laboratory_over{ background-image:url('map/52.gif');	width:156px;	background-position:-15px -43px;}
+
+.mycasino, .mycasino_over {
+	background-image:url('city/1108.gif');
+	height:165px;
+	width:154px;
+	background-position:11px 0px;
+	}
+.mycasino_over	{background-position:-154px 0px;}
+/* EXTRA BUILDINGS */
+
+.bakery,	.bakery_over,
+.watchmaker, .watchmaker_over,
+.butchery,	.butchery_over,
+.hairstyle,	.hairstyle_over,
+.pizza,		.pizza_over,
+.groceries,	.groceries_over,
+.newsshop,	.newsshop_over,
+.keymaker,	.keymaker_over,
+.clothing,	.clothing_over,
+.gold-craft, .gold-craft_over,
+.restourant, .restourant_over,
+.sweet-shop, .sweet-shop_over,
+.locksmith,	.locksmith_over,
+.candyshop,   .candyshop_over,
+.gamershop,   .gamershop_over
+{
+	overflow:hidden;
+	display:block;
+	position:absolute;
+	width:166px;
+	height:172px;
+	background-position:-16px -7px;
+	background-color:transparent;
+	background-repeat:no-repeat;
+	/*border:red solid 1px;*/
+}
+
+.gamershop,
+.gamershop_over {
+	background-image:url('map/111.gif');
+	}
+
+.candyshop,
+.candyshop_over {
+	background-image:url('map/110.gif');
+	}
+        
+.gamershop_over,
+.candyshop_over {
+    filter: brightness(1.25);
+}
+
+.newsshop,
+.newsshop_over {
+	background-image:url('map/107.gif');
+	}
+.groceries,
+.groceries_over {
+	background-image:url('map/102.gif');
+	}
+.bakery,
+.bakery_over {
+	background-image:url('map/100.gif');
+	}
+.butchery,
+.butchery_over {
+	background-image:url('map/103.gif');
+	}
+.watchmaker,
+.watchmaker_over {
+	background-image:url('map/105.gif');
+	}
+.keymaker,
+.keymaker_over {
+	background-image:url('map/101.gif');
+	}
+.hairstyle,
+.hairstyle_over{
+	background-image:url('map/109.gif');
+	}
+.pizza,
+.pizza_over {
+	background-image:url('map/106.gif');
+}
+.clothing,
+.clothing_over {
+	background-image:url('map/104.gif');
+}
+
+.hairstyle_over,
+.watchmaker_over,
+.butchery_over,
+.pizza_over,    
+.groceries_over,
+.bakery_over,
+.newsshop_over,
+.keymaker_over,
+.clothing_over,
+.candyshop_over,
+.gamershop_over
+	{background-position:-186px -7px;}
+
+
+/* Фабрики */
+.drink_factory,		.drink_factory_over,
+.drink_factoryno,	.drink_factoryno_over,
+.softdrink_factory,	.softdrink_factory_over,
+.softdrink_factoryno,	.softdrink_factoryno_over,
+.drug_factory,		.drug_factory_over,
+.drug_factoryno,	.drug_factoryno_over,
+.edrink_factory,	.edrink_factory_over,
+.edrink_factoryno,	.edrink_factoryno_over,
+.cigarette_factory,	.cigarette_factory_over,
+.cigarette_factoryno,	.cigarette_factoryno_over,
+.gun_factory,		.gun_factory_over,
+.gun_factoryno,		.gun_factoryno_over,
+.dog_factory,		.dog_factory_over,
+.dog_factoryno,		.dog_factoryno_over,
+.car_factory,		.car_factory_over,
+.car_factoryno,		.car_factoryno_over,
+.office,                .office_over
+{
+	display:block;
+	position:absolute;
+	width:150px;
+	height:151px;
+	background-position:-15px -17px;
+	background-color:transparent;
+	background-repeat:no-repeat;
+	/*border:red solid 1px;*/
+}
+.drink_factory,.drink_factory_over {background-image:url('map/31.gif');}
+.softdrink_factory,.softdrink_factory_over {background-image:url('map/31_cola.gif');}
+.drug_factory,.drug_factory_over {background-image:url('map/41.gif');}
+.edrink_factory,.edrink_factory_over {background-image:url('map/41_edrink.gif');}
+.cigarette_factory,.cigarette_factory_over {background-image:url('map/41_cigarette.gif');}
+.gun_factory,.gun_factory_over {background-image:url('map/42.gif');}
+.dog_factory,.dog_factory_over {background-image:url('map/51.gif');}
+.car_factory,.car_factory_over {background-image:url('map/50.gif');}
+
+.drink_factoryno,.drink_factoryno_over {background-image:url('map/31_no.gif');}
+.softdrink_factoryno,.softdrink_factoryno_over {background-image:url('map/31_cola_no.gif');}
+.drug_factoryno,.drug_factoryno_over {background-image:url('map/41_no.gif');}
+.edrink_factoryno,.edrink_factoryno_over {background-image:url('map/41_edrink_no.gif');}
+.cigarette_factoryno,.cigarette_factoryno_over {background-image:url('map/41_cigarette_no.gif');}
+.gun_factoryno,.gun_factoryno_over {background-image:url('map/42_no.gif');}
+.dog_factoryno,.dog_factoryno_over {background-image:url('map/51_no.gif');}
+.car_factoryno,.car_factoryno_over {background-image:url('map/50_no.gif');}
+
+.office, .office_over	{
+	width:160px;
+	height:180px;
+	background-position:-15px -10px;
+	background-image:url('map/25.gif');
+	}
+
+.softdrink_factory_over,
+.drink_factory_over,
+.drug_factory_over,
+.edrink_factory_over,
+.cigarette_factory_over,
+.gun_factory_over,
+.dog_factory_over,
+.car_factory_over,
+.softdrink_factoryno_over,
+.drink_factoryno_over,
+.drug_factoryno_over,
+.edrink_factoryno_over,
+.cigarette_factoryno_over,
+.gun_factoryno_over,
+.dog_factoryno_over,
+.car_factoryno_over {background-position:-215px -17px;}
+.office_over			{background-position:-215px -10px;}
+
+.laboratory_over {
+    background-position:-203px -43px !important;
+}
+.laboratory {
+    filter: brightness(85%);
+}
+/* ----------------------------------------------------------------------- */
+
+td div.ground,
+td div.myground {
+	position:relative;
+	width:170px;
+	height:120px;
+	background-position:-20px -40px;
+	}
+
+/* Фабрики */
+td div.hotel,
+td div.hotel_man,
+td div.cafe,
+td div.club,
+td div.club_man,
+td div.softdrink_factory,
+td div.drink_factory,
+td div.drug_factory,
+td div.edrink_factory,
+td div.cigarette_factory,
+td div.gun_factory,
+td div.dog_factory,
+td div.car_factory,
+td div.office
+{
+	position:relative;
+	margin:5px 5px 0 -15px;
+	/*border:red solid 1px;*/
+}
+
+td div.mycasino
+{
+	position:relative;
+	margin:5px 5px 0 10px;
+}
+.tooltip div.mycasino
+{
+	float:left;
+	width:145px;
+	position:relative;
+	margin:5px 5px 0 10px;
+}
+
+.tooltip div.myground,
+.tooltip div.hotel,
+.tooltip div.hotel_man,
+.tooltip div.cafe,
+.tooltip div.club,
+.tooltip div.club_man,
+.tooltip div.softdrink_factory,
+.tooltip div.drink_factory,
+.tooltip div.drug_factory,
+.tooltip div.edrink_factory,
+.tooltip div.cigarette_factory,
+.tooltip div.gun_factory,
+.tooltip div.dog_factory,
+.tooltip div.car_factory,
+.tooltip div.office
+{
+	float:left;
+	width:145px;
+	position:relative;
+	margin:5px 5px 0 -15px;
+	/*border:red solid 1px;*/
+}
+
+.tooltip	div.bakery,
+.tooltip	div.watchmaker,
+.tooltip	div.butchery,
+.tooltip	div.hairstyle,
+.tooltip	div.pizza,
+.tooltip	div.groceries,
+.tooltip	div.newsshop,
+.tooltip	div.keymaker,
+.tooltip	div.clothing,
+
+.tooltip	div.gold-craft,
+.tooltip	div.restourant,
+.tooltip	div.sweet-shop,
+.tooltip	div.locksmith
+{
+	float:left;
+	width:145px;
+	position:relative;
+	margin:5px 5px 0 5px;
+	/*border:red solid 1px;*/
+}
+
+/*
+	People, Cars
+*/
+.bicyclist, .bicyclist_over,
+.postman, .postman_over,
+.mother, .mother_over,
+.doggirl, .doggirl_over,
+.dogboy, .dogboy_over,
+.teacher, .teacher_over,
+.girl, .girl_over,
+.punk, .punk_over,
+.skater, .skater_over,
+.inlove, .inlove_over,
+.businessman, .businessman_over,
+.manager, .manager_over,
+.businesslady, .businesslady_over,
+.hookers, .hookers_over,
+.dude, .dude_over,
+.oldcar, .oldcar_over,
+.newcar, .newcar_over,
+.taxi, .taxi_over,
+.agent, .agent_over,
+.snitch, .snitch_over,
+.mycar, .mycar_over,
+.tank, .tank_over,
+.hydrant, .hydrant_over,
+.shaft, .shaft_over,
+.garbage, .garbage_over,
+.blockade, .blockade_over,
+.doggie, .doggie_over,
+.lazyboy, .lazyboy_over,
+.post, .post_over,
+.sign, .sign_over,
+.sittingboy, .sittingboy_over,
+.soccerboy, .soccerboy_over,
+.upi, .upi_over,
+.kid, .kid_over,
+.atm, .atm_over,
+.cofemachine, .cofemachine_over,
+.bully, .bully_over,
+.phone, .phone_over,
+.worker, .worker_over,
+.drugdealer, .drugdealer_over,
+.drunk, .drunk_over,
+.cop, .cop_over,
+.santa, .santa_over,
+.showwhite, .showwhite_over
+{
+	display:block;
+	position:absolute;
+	width:80px;
+	height:80px;
+	background:transparent url('map/objects.gif') 0 0  no-repeat;
+	/*border:1px solid red;*/
+}
+
+.dude,
+.dude_over {left:340px; bottom:100px; width:92px; height:68px; background-position: 0 -140px; z-index:89; }
+.dude_over {background-position: 0 -220px;}
+
+.gang-map .dude,
+.gang-map .dude_over {left:400px; bottom:134px; width:92px; height:68px; background-position: 0 -140px; z-index:89; }
+.gang-map .dude_over {background-position: 0 -220px;}
+
+.santa,
+.santa_over {left:345px; bottom:110px; width:89px; height:64px; background-position: -520px -322px; z-index:89; }
+.santa_over {background-position: -520px -386px;}
+
+.showwhite,
+.showwhite_over {left:436px; bottom:158px; width:24px; height:45px; background-position: -610px -321px; z-index:89; }
+.showwhite_over {background-position: -610px -386px;}
+
+.oldcar,
+.oldcar_over {left:406px; bottom:325px; width:92px; height:55px; background-position: -528px -153px; z-index:25; }
+.oldcar_over {background-position: -528px -233px;}
+
+.taxi,
+.taxi_over {left:135px; bottom:-5px; width:99px; height:68px; background-position: -640px -148px; z-index:92; }
+.taxi_over {background-position: -640px -228px;}
+
+/*  Сивата кола
+.taxi,
+.taxi_over {left:135px; bottom:-5px; width:99px; height:68px; background-position: -192px -144px; z-index:92; }
+.taxi_over {background-position: -192px -224px;}
+*/
+
+.cop,
+.cop_over {left:543px; bottom:195px; width:97px; height:82px; background-position: -416px -128px; z-index:140; }
+.cop_over {background-position: -416px -210px;}
+
+.gang-map .cop,
+.gang-map .cop_over {left:395px; bottom:295px; width:97px; height:82px; background-position: -416px -128px; z-index:140; }
+.gang-map .cop_over {background-position: -416px -210px;}
+
+.mycar,
+.mycar_over {left:410px; bottom:215px; width:105px; height:65px; background-position: -304px -142px; z-index:33; }
+.mycar_over {background-position: -304px -224px;}
+
+.gang-map .mycar,
+.gang-map .mycar_over {left:410px; bottom:202px; width:105px; height:65px; background-position: -304px -142px; z-index:33; }
+.gang-map .mycar_over {background-position: -304px -224px;}
+
+.agent,
+.agent_over {left:400px; bottom:214px; width:115px; height:69px; background-position: -759px -140px; z-index:34;}
+.agent_over {background-position: -759px -220px;}
+
+.snitch,
+.snitch_over {left:415px; bottom:180px; width:115px; height:69px; background-position: -759px -306px; z-index:35;}
+.snitch_over {background-position: -759px -386px;}
+
+.newcar,
+.newcar_over {left:240px; bottom:48px; width:95px; height:68px; background-position: -96px -140px; z-index:91; }
+.newcar_over {background-position: -96px -220px;}
+
+.gang-map .newcar,
+.gang-map .newcar_over {left:300px; bottom:82px; width:95px; height:68px; background-position: -96px -140px; z-index:91; }
+.gang-map .newcar_over {background-position: -96px -220px;}
+
+.bicyclist,
+.bicyclist_over {left:290px; bottom:310px; width:31px; height:41px; background-position: 0 -23px; z-index:100; }
+.bicyclist_over {background-position: 0 -87px;}
+
+.postman,
+.postman_over {left:140px; bottom:220px; width:28px; height:51px; background-position: -32px -13px; z-index:101; }
+.postman_over {background-position: -32px -77px;}
+
+.mother,
+.mother_over {left:425px; bottom:280px; width:42px; height:52px; background-position: -65px -12px; z-index:102; }
+.mother_over {background-position: -65px -76px;}
+
+.doggirl,
+.doggirl_over {left:44px; bottom:166px; width:29px; height:55px; background-position: -160px -9px; z-index:68; }
+.doggirl_over {background-position: -160px -73px;}
+
+.dogboy,
+.dogboy_over {left:188px; bottom:4px; width:30px; height:38px; background-position: -544px -26px; z-index:130; }
+.dogboy_over {background-position: -544px -90px;}
+
+.skater,
+.skater_over {left:310px; bottom:2px; width:33px; height:45px; background-position: -112px -19px; z-index:104; }
+.skater_over {background-position: -112px -83px;}
+
+.teacher,
+.teacher_over {left:420px; bottom:180px; width:16px; height:39px; background-position: -192px -25px; z-index:105; }
+.teacher_over {background-position: -192px -89px;}
+
+.gang-map .teacher,
+.gang-map .teacher_over {left:417px; bottom:191px; width:16px; height:39px; background-position: -192px -25px; z-index:105; }
+.gang-map .teacher_over {background-position: -192px -89px;}
+
+.girl,
+.girl_over {left:347px; bottom:78px; width:15px; height:37px; background-position: -224px -27px; z-index:114; }
+.girl_over {background-position: -224px -91px;}
+
+.punk,
+.punk_over {left:515px; bottom:248px; width:15px; height:38px; background-position: -208px -26px; z-index:107; }
+.punk_over {background-position: -208px -90px;}
+
+.inlove,
+.inlove_over {left:62px; bottom:2px; width:19px; height:38px; background-position: -240px -27px; z-index:108; }
+.inlove_over {background-position: -240px -91px;}
+
+.businessman,
+.businessman_over {left:514px; bottom:200px; width:17px; height:36px; background-position: -272px -28px; z-index:109; }
+.businessman_over {background-position: -272px -92px;}
+
+.gang-map .businessman,
+.gang-map .businessman_over {left:464px; bottom:260px; width:17px; height:36px; background-position: -272px -28px; z-index:109; }
+.gang-map .businessman_over {background-position: -272px -92px;}
+
+.manager,
+.manager_over {left:105px; bottom:205px; width:20px; height:36px; background-position: -448px -28px; z-index:126; }
+.manager_over {background-position: -448px -92px;}
+
+.gang-map .manager,
+.gang-map .manager_over {left:575px; bottom:205px; width:20px; height:36px; background-position: -448px -28px; z-index:126; }
+.gang-map .manager_over {background-position: -448px -92px;}
+
+.businesslady,
+.businesslady_over {left:480px; bottom:265px; width:18px; height:37px; background-position: -304px -27px; z-index:103; }
+.businesslady_over {background-position: -304px -91px;}
+
+.hookers,
+.hookers_over {left:238px; bottom:282px; width:36px; height:37px; background-position: -336px -27px; z-index:211; }
+.hookers_over {background-position: -336px -91px;}
+
+.tank,
+.tank_over {left:-15px; bottom:200px; width:44px; height:58px; background-position: 0 -326px; z-index:116; }
+.tank_over {background-position: 0 -390px;}
+
+.hydrant,
+.hydrant_over {left:355px; bottom:328px; width:16px; height:23px; background-position: -192px -329px; z-index:117; }
+.hydrant_over {background-position: -192px -393px;}
+
+.gang-map .hydrant,
+.gang-map .hydrant_over {left:160px; bottom:135px; width:16px; height:23px; background-position: -192px -329px; z-index:117; }
+.gang-map .hydrant_over {background-position: -192px -393px;}
+
+.shaft,
+.shaft_over {left:230px; bottom:4px; width:53px; height:27px; background-position: -64px -357px; z-index:118; }
+.shaft_over {background-position: -64px -421px;}
+
+.gang-map .shaft,
+.gang-map .shaft_over {left:110px; bottom:159px; width:53px; height:27px; background-position: -64px -357px; z-index:118; }
+.gang-map .shaft_over {background-position: -64px -421px;}
+
+.garbage,
+.garbage_over {left:550px; bottom:10px; width:80px; height:44px; background-position: -224px -340px; z-index:119; }
+.garbage_over {background-position: -224px -404px;}
+
+.blockade,
+.blockade_over {left:270px; bottom:20px; width:33px; height:31px; background-position: -64px -321px; z-index:25; }
+.blockade_over {background-position: -64px -385px;}
+
+.doggie,
+.doggie_over {left:234px; bottom:40px; width:20px; height:22px; background-position: -192px -363px; z-index:121;}
+.doggie_over {background-position: -192px -427px;}
+
+.post,
+.post_over {left:356px; bottom:4px; width:24px; height:40px; background-position: -160px -344px; z-index:122; }
+.post_over {background-position: -160px -408px;}
+
+.sign,
+.sign_over {left:336px; bottom:7px; width:26px; height:52px; background-position: -128px -334px; z-index:123; }
+.sign_over {background-position: -128px -397px;}
+
+.gang-map .sign,
+.gang-map .sign_over {left:350px; bottom:27px; width:26px; height:52px; background-position: -128px -334px; z-index:123; }
+.gang-map .sign_over {background-position: -128px -397px;}
+
+.sittingboy,
+.sittingboy_over {left:6px; bottom:167px; width:21px; height:42px; background-position: -416px -22px; z-index:124; }
+.sittingboy_over {background-position: -416px -86px;}
+
+.soccerboy,
+.soccerboy_over {left:250px; bottom:320px; width:31px; height:38px; background-position: -384px -26px; z-index:125; }
+.soccerboy_over {background-position: -384px -90px;}
+
+.upi,
+.upi_over {left:8px; bottom:150px; width:25px; height:39px; background-position: -512px -25px; z-index:155; }
+.upi_over {background-position: -512px -89px;}
+
+.gang-map .upi,
+.gang-map .upi_over {left:508px; bottom:232px; width:25px; height:39px; background-position: -512px -25px; z-index:155; }
+.gang-map .upi_over {background-position: -512px -89px;}
+
+.kid,
+.kid_over {left:104px; bottom:22px; width:22px; height:27px; background-position: -480px -37px; z-index:127; }
+.kid_over {background-position: -480px -101px;}
+
+.cofemachine,
+.cofemachine_over {left:320px; bottom:137px; width:28px; height:43px; background-position: -336px -341px; z-index:143; }
+.cofemachine_over {background-position: -336px -405px;}
+
+.atm,
+.atm_over {left:235px; bottom:95px; width:23px; height:37px; background-position: -304px -347px; z-index:129; }
+.atm_over {background-position: -304px -411px;}
+
+.bully,
+.bully_over {left:296px; bottom:56px; width:15px; height:36px; background-position: -576px -28px; z-index:130; }
+.bully_over {background-position: -576px -92px;}
+
+.gang-map .bully,
+.gang-map .bully_over {left:217px; bottom:106px; width:15px; height:36px; background-position: -576px -28px; z-index:130; }
+.gang-map .bully_over {background-position: -576px -92px;}
+
+.phone,
+.phone_over {left:532px; bottom:238px; width:22px; height:53px; background-position: -384px -331px; z-index:131; }
+.phone_over {background-position: -384px -395px;}
+
+.worker,
+.worker_over {left:320px; bottom:322px; width:22px; height:43px; background-position: -640px -21px; z-index:132; }
+.worker_over {background-position: -640px -85px;}
+
+.drugdealer,
+.drugdealer_over {left:12px; bottom:25px; width:16px; height:39px; background-position: -672px -25px; z-index:133; }
+.drugdealer_over {background-position: -672px -89px;}
+
+
+.drunk,
+.drunk_over {left:370px; bottom:325px; width:40px; height:40px; background-position: -592px -24px; z-index:169; }
+.drunk_over {background-position: -592px -88px;}
+
+.gang-map .drunk,
+.gang-map .drunk_over {left:119px; bottom:21px; width:40px; height:40px; background-position: -592px -24px; z-index:169; }
+.gang-map .drunk_over {background-position: -592px -88px;}
+
+.lazyboy,
+.lazyboy_over {left:24px; bottom:173px; width:30px; height:42px; background-position: -416px -22px; z-index:135; }
+.lazyboy_over {background-position: -416px -86px;}
+
+/* Quest minions and bosses */
+
+.swat, .swat_over,
+.bargain, .bargain_over,
+.limo, .limo_over,
+.pimp, .pimp_over,
+.k9, .k9_over,
+.car-race, .car-race_over,
+.arrested, .arrested_over,
+.interview, .interview_over,
+.errand-boy, .errand-boy_over,
+.playboy, .playboy_over,
+.boss-suv, .boss-suv_over,
+.bank-robbery, .bank-robbery_over,
+.kidnapper, .kidnapper_over,
+.firefight, .firefight_over,
+.armoured-car, .armoured-car_over,
+.musicians, .musicians_over,
+.carnival, .carnival_over,
+.motorbike-race, .motorbike-race_over, 
+.motorbike-rider, .motorbike-rider_over, 
+.dog-walk, .dog-walk_over,
+.dog-fight, .dog-fight_over,
+.dealers, .dealers_over
+{
+	display:block;
+	position:absolute;
+	width:80px;
+	height:80px;
+	background:transparent url('map/bosses.gif') 0 0  no-repeat;
+	/*border:1px solid red;*/
+	width:116px; height:104px;
+	left:394px; bottom:182px; 
+	/*left:400px; bottom:214px; width:115px; height:69px; */
+	z-index:34; /* 104 */ 
+}
+
+.swat,
+.swat_over {left:410px; bottom:178px; width:101px; height:104px; 
+			background-position: -59px -14px; }
+.swat_over {background-position: -59px -261px;}
+
+.limo,
+.limo_over {left:390px; bottom:185px; width:135px; height:104px; 
+			background-position: -59px -138px; }
+.limo_over {background-position: -59px -387px;}
+
+.bargain,
+.bargain_over {	left:394px; bottom:187px; width:116px; height:93px;
+				background-position: -252px -22px; }
+.bargain_over {background-position: -252px -271px;}
+
+.pimp,
+.pimp_over {left:398px; bottom:201px; width:109px; height:74px;
+			background-position: -250px -138px; }
+.pimp_over {background-position: -250px -387px;}
+
+.k9,
+.k9_over {left:411px; bottom:188px; width:99px; height:93px;
+			background-position: -469px -19px; }
+.k9_over {background-position: -469px -268px;}
+
+.car-race,
+.car-race_over {left:403px; bottom:179px; width:110px; height:102px;
+				background-position: -462px -116px; }
+.car-race_over {background-position: -462px -365px;}
+
+.arrested,
+.arrested_over {left:397px; bottom:185px; width:122px; height:93px;
+				background-position: -655px -19px; }
+.arrested_over {background-position: -655px -268px;}
+
+.interview,
+.interview_over {left:422px; bottom:192px; width:76px; height:86px; 
+					background-position: -684px -123px; }
+.interview_over {background-position: -684px -372px;}
+
+.errand-boy,
+.errand-boy_over {left:419px; bottom:212px; width:89px; height:65px; 
+					background-position: -880px -33px; }
+.errand-boy_over {background-position: -880px -282px;}
+
+.playboy,
+.playboy_over {left:408px; bottom:202px; width:102px; height:75px;  
+				background-position: -868px -130px; }
+.playboy_over {background-position: -868px -379px;}
+
+.boss-suv,
+.boss-suv_over {left:419px; bottom:199px; width:91px; height:75px; 
+				background-position: -1081px -33px; }
+.boss-suv_over {background-position: -1081px -282px;}
+
+.bank-robbery,
+.bank-robbery_over {left:406px; bottom:189px; width:95px; height:87px; 
+					background-position: -1060px -122px; }
+.bank-robbery_over {background-position: -1060px -371px;}
+
+.kidnapper,
+.kidnapper_over {left:423px; bottom:207px; width:93px; height:69px; 
+					background-position: -1266px -31px; }
+.kidnapper_over {background-position: -1266px -280px;}
+
+.firefight,
+.firefight_over {left:388px; bottom:169px; width:109px; height:123px; 
+					background-position: -1256px -122px; }
+.firefight_over {background-position: -1256px -371px;}
+
+.armoured-car,
+.armoured-car_over {left:417px; bottom:202px; width:96px; height:81px; 
+					background-position: -1475px -26px; }
+.armoured-car_over {background-position: -1475px -275px;}
+
+.musicians,
+.musicians_over {left:430px; bottom:202px; width:83px; height:77px; 
+				background-position: -1475px -127px; }
+.musicians_over {background-position: -1475px -376px;}
+
+.carnival,
+.carnival_over {left:391px; bottom:190px; width:126px; height:95px; 
+				background-position: -1643px -19px; }
+.carnival_over {background-position: -1643px -268px;}
+
+.motorbike-race,
+.motorbike-race_over {left:406px; bottom:202px; width:107px; height:82px; 
+					background-position: -1669px -127px; }
+.motorbike-race_over {background-position: -1669px -376px;}
+
+.motorbike-rider,
+.motorbike-rider_over {left:406px; bottom:205px; width:107px; height:69px; 
+						background-position: -1854px -35px; }
+.motorbike-rider_over {background-position: -1854px -284px;}
+
+.dog-walk,
+.dog-walk_over {left:442px; bottom:205px; width:52px; height:54px; 
+				background-position: -1889px -141px; }
+.dog-walk_over {background-position: -1889px -390px;}
+
+.dog-fight,
+.dog-fight_over {left:398px; bottom:201px; width:103px; height:78px; 
+				background-position: -2073px -29px; }
+.dog-fight_over {background-position: -2073px -278px;}
+
+.dealers,
+.dealers_over {left:414px; bottom:208px; width:100px; height:64px; 
+				background-position: -2079px -135px; }
+.dealers_over {background-position: -2090px -380px;}
+
+
+/* Building tooltip */
+div.tltp {
+	visibility:hidden;
+	margin:0;
+	padding:2px;
+	font-size:10px;
+	color:#eee;
+	background-color:#333;
+	border:1px #666 solid;
+	}
+/*Navigation links*/
+.north, .north_over,
+.east, .east_over,
+.west, .west_over,
+.south, .south_over,
+.north-east, .north-east_over,
+.north-west, .north-west_over,
+.south-east, .south-east_over,
+.south-west, .south-west_over {
+	display: block;
+	position:absolute;
+	background:transparent url('map/mapdirs.gif') 0 0 no-repeat;
+	width:20px;
+	height:20px;
+	z-index:2001;
+	text-decoration:none !important;
+	vertical-align:middle;
+	text-align:center;
+}
+.north {
+	width:30px;
+}
+.east {
+	height:30px;
+	background-position: -30px 0;
+}
+.west {
+	height:30px;
+	background-position: -96px 0;
+}
+.south {
+	width:30px;
+	background-position: -64px 2px;
+}
+.north-east {
+	background-position: -191px 0;
+}
+.north-west {
+	background-position: -224px 0px;
+}
+.south-east {
+	background-position: -159px 1px;
+}
+.south-west	{
+	background-position: -128px 1px;
+}
+
+#map .north {
+	top:0;
+	left:280px;
+}
+#map .east {
+	top:170px;
+	right:0;
+}
+#map .west {
+	top:170px;
+	left:0;
+}
+#map .south {
+	bottom:0;
+	left:280px;
+}
+#map .north-east {
+	top:0;
+	right:0;
+}
+.city-map .north-west {
+	top:0;
+	left:0;
+}
+.private-map .north-west,
+.private-map-10 .north-west,
+.private-map-winter .north-west,
+.private-map-10-winter .north-west,
+.gang-map .north-west,
+.gang-map-winter .north-west
+{
+	top:65px;
+	left:0;
+}
+#map .south-east {
+	bottom:0;
+	right:0;
+}
+#map .south-west {
+	bottom:0;
+	left:0;
+}
+
+.north:hover, .north-go { background-position: 0 -32px;}
+.east:hover, .east-go { background-position: -30px -32px;}
+.west:hover, .west-go { background-position: -96px -32px;}
+.south:hover, .south-go { background-position: -64px -30px;}
+.north-east:hover, .north-east-go { background-position: -191px -32px;}
+.north-west:hover, .north-west-go { background-position: -224px -32px;}
+.south-east:hover, .south-east-go { background-position: -159px -31px;}
+.south-west:hover, .south-west-go { background-position: -128px -31px;}
+
+.map-npcattack {
+    display:block;
+    position:absolute;
+    border: 1px solid #333;
+    font-size:8.5pt !important;
+    background:black url(icon/flame-ani-5.gif) 3px 1px no-repeat !important;
+    padding: 0px 2px 0px 19px; 
+    /*width:100px;*/
+    height:16px !important;
+    bottom:0px;
+    left:20px;
+    z-index:2001;
+/*      text-align:middle;*/
+    text-decoration:none !important;
+}
+
+.map-npcattack-rtl {
+    display:block;
+    position:absolute;
+    border: 1px solid #333;
+    font-size:8.5pt !important;
+    background:black url(icon/flame-ani-5.gif) 101% 1% no-repeat !important;
+    padding: 0px 19px 0px 2px; 
+    height:16px !important;
+    bottom:0px;
+    right:20px;
+    z-index:2001;
+    text-decoration:none !important;
+}
+
+.go-minimap {
+	display:block;
+	position:absolute;
+	border: 1px solid #333;
+	font-size:8.5pt !important;
+	background:black url(icon/minimap.gif) 3px 1px no-repeat !important;
+	padding: 0px 2px 0px 19px; 
+	/*width:100px;*/
+	height:16px !important;
+	bottom:0px;
+	right:20px;
+	z-index:2001;
+/*		text-align:middle;*/
+	text-decoration:none !important;
+}
+
+body.rtl .go-minimap {
+	left:20px !important;	
+	right:auto !important;
+}
+
+.minimap_x,
+.minimap_y {
+	background-color: #000;
+	}
+
+#map a {
+	outline:0 !important;
+}
+
+
+
+body.rtl .cmenu th,
+body.rtl .cmenu td a{
+	font-size:8.5pt;
+	text-align:right;
+	}
+body.rtl .cmenu th.title {
+	font:bold 9pt Tahoma,Arial,sans-serif !important;
+	}
+
+body.rtl .cmenu th.title small{
+	font-size:8pt !important;
+	}
+
+body.rtl .cmenu th a:link,
+body.rtl .cmenu th a:visited {
+	padding:4px 5px 4px 20px;
+	}
+body.rtl .cmenu th a:hover {
+	text-decoration:underline;
+	}
+body.rtl td.st, 
+body.rtl td.at, 
+body.rtl td.rs, 
+body.rtl td.ch, 
+body.rtl td.rsp, 
+body.rtl td.gr, 
+body.rtl td.tox {
+	background-position:100% 50%;
+	font:normal 8.5pt Tahoma,Arial,sans-serif;
+	padding-right:16px;
+	padding-left:0px !important;
+
+	}
+body.rtl a.st, 
+body.rtl a.ch, 
+body.rtl a.rs, 
+body.rtl a.rsp, 
+body.rtl a.gr {
+	background-position:100% 50%; 
+	padding-right:15px; 
+	padding-left:5px !important;
+	}
+
+body.rtl td.tip,
+body.rtl th.dstr,
+body.rtl th.upg,
+body.rtl td.nfo {
+	padding-right:16px;
+	background-position:100% 50%;
+	}
+
+body.rtl .map_head {
+	left:auto;
+	right:0;
+	font-size:8.5pt;
+	}
+body.rtl .map_head_right {
+	left:0;
+	right:auto;
+	font-size:8.5pt;
+	}
+
+body.rtl .club, body.rtl .club_over{	background-image:url('map-ar/12.gif');	width:154px;	height:168px;	background-position:-15px -2px;	}
+body.rtl .club_man, body.rtl .club_man_over{	background-image:url('map-ar/12.gif');	width:154px;	height:168px;	background-position:-15px -2px;	}
+body.rtl .hotel, body.rtl .hotel_over{ background-image:url('map/13_man.gif');	width:156px;	background-position:-15px 0px;	}
+body.rtl .drink_factory, body.rtl .drink_factory_over {background-image:url('map/31_cola.gif');}
+body.rtl .office, body.rtl .office_over	{
+	background-image:url('map-ar/25.gif');
+	}
+
+body.rtl .inlove,
+body.rtl .inlove_over {left:57px; bottom:2px; width:45px; height:40px; background-position: -704px -24px; z-index:108; }
+body.rtl .inlove_over {background-position: -704px -88px;}
+
+body.rtl div.tltp {
+	font-size:8.5pt;
+	}
+
+body.rtl #map .north-west {
+	top:0;
+	left:0;
+}
+body.rtl .city_map .north-east {
+	top:0;
+	right:0;
+}
+body.rtl .private-map .north-east,
+body.rtl .private-map-10 .north-east,
+body.rtl .private-map-winter .north-east,
+body.rtl .private-map-10-winter .north-east,
+body.rtl .gang-map .north-east,
+body.rtl .gang-map .north-east,
+body.rtl .gang-map-winter .north-east,
+body.rtl .gang-map-winter .north-east 
+{
+	right:0;
+	left:auto;
+}
+

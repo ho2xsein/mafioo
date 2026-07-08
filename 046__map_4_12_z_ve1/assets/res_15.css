@@ -1,0 +1,220 @@
+	.city-map, 
+	.city-map-winter {
+		overflow:hidden;
+		position:relative;
+		margin:0;
+		padding:0;
+		width:630px;
+		height:376px;
+		background:transparent url('city/citymap_1024.gif') 0 -2px no-repeat;
+		border:1px solid #444;
+		z-index:1
+		}
+	.city-map-winter {
+		background:transparent url('city/citymap_1024_winter.gif') 0 -2px no-repeat;
+		}
+
+/*
+	Spots
+	--------------------------------------------------
+*/
+	.spot1  { left:87px;	bottom:229px;	z-index:10; } /* Hospital */
+	.spot2  { left:1px;		bottom:181px;	z-index:20; } /* Casino */
+	.spot3  { left:470px;	bottom:230px;	z-index:30; } /* PD */
+	.spot4  { left:281px;	bottom:136px;	z-index:40; } /* Bank */
+	.spot5  { left:90px;	bottom:34px;	z-index:50; } /* Fitness */
+	.spot6  { left:4px;		bottom:-18px;	z-index:60; } /* Jail */
+	.spot7  { left:388px;	bottom:-18px;	z-index:70; } /* Black Market */
+	.spot8  { left:0;		bottom:150px;	z-index:80; } /* Fance */
+
+/*
+	Objects
+	--------------------------------------------------
+*/
+	.cityhospital,		.cityhospital_over,
+	.casino,			.casino_over,
+	.pd,				.pd_over,
+	.bank,			.bank_over,
+	.fitness,		.fitness_over,
+	.prison,			.prison_over,
+	.blackmarket,	.blackmarket_over,
+	.fence,			.fence_over 
+	{
+		display:block;
+		position:absolute;
+		width:150px;
+		height:170px;
+	}
+	.cityhospital, .cityhospital_over {width:150px;height:170px;background:transparent url('city/1105.gif') 0 0 no-repeat;}
+	.cityhospital_over {background-position:-150px 0;}
+
+	.casino, .casino_over {width:145px;height:160px;background:transparent url('city/1108.gif') 0 0 no-repeat;}
+	.casino_over {background-position:-165px 0;}
+
+	.club, .club_over {width:154px; height:168px; background:transparent url('map/12.gif') no-repeat -15px -2px !important;}
+	.club_over {background-position:-185px -2px !important;}
+
+	.hotel, .hotel_over {width:156px; background-image:url('map/13.gif'); background-position:-25px 6px; }
+	.hotel_over {background-position:-195px 6px;}
+
+	.hotel_man, .hotel_man_over {width:156px; background-image:url('map/13_man.gif'); background-position:-25px 6px; }
+	.hotel_man_over {background-position:-195px 6px;}
+	
+	.pd,	.pd_over {width:150px;height:170px;background:transparent url('city/1109.gif') 0 0 no-repeat;}
+	.pd_over {background-position:-150px 0;}
+	.lang-fr .pd, .lang-fr .pd_over {background:transparent url('city/1109-fr.gif') 0 0 no-repeat;}
+
+	.fitness,.fitness_over {width:142px;height:180px;background:transparent url('city/1102.gif') 0 0 no-repeat;}
+	.fitness_over { background-position:-142px 0;}
+
+	.prison,	.prison_over {width:142px;height:142px;background:transparent url('city/1107.gif') 0 0 no-repeat;}
+	.prison_over {background-position:-142px 0;}
+
+	.bank, .bank_over {width:142px;height:250px;background:transparent url('city/1101.gif') 0 0 no-repeat;}
+	.bank_over {background-position:-142px 0;}
+
+	.blackmarket, .blackmarket_over {width:230px;height:190px;background:transparent url('city/1103.gif') 0 0 no-repeat;}
+	.blackmarket_over {background-position:-230px 0;}
+
+	.fence {
+		left:0;		
+		bottom:150px;	
+		z-index:80;
+		width:50px;
+		height:94px;
+		background:transparent url('city/01.gif') 0 0 no-repeat;
+		}
+
+
+	/* NPC */
+	.pimp,			.pimp_over,
+	.dealer,			.dealer_over,
+	.merchant,		.merchant_over,
+	.housewife,		.housewife_over,
+	.housekeeper,	.housekeeper_over,
+	.thief,			.thief_over,
+	.safecracker,	.safecracker_over,
+	.sign,			.sign_over,
+	.sign2,			.sign2_over,
+	.sign3,			.sign3_over,
+	.uncles,			.uncles_over,
+	.robbery,		.robbery_over,
+	.family,			.family_over,
+	.meeting, 		.meeting_over,
+	.sickboy,		.sickboy_over,
+	.policedog,		.policedog_over,
+	.ambulance,		.ambulance_over,
+	.bmw,			.bmw_over,
+	.patrolcar,		.patrolcar_over
+	{
+		display:block;
+		position:absolute;
+		background:transparent url('city/02.gif') 0 0 no-repeat;
+		background-position:0 0;
+	}
+
+	.pimp, 
+	.pimp_over {width:22px; height:40px; left:109px; bottom:196px; background-position:0 0; z-index:100;}
+	.pimp_over {background-position:-22px 0;}
+
+	.dealer, 
+	.dealer_over {width:16px; height:34px; left:50px; bottom:186px; background-position:-44px 0; z-index:110;}
+	.dealer_over {background-position:-60px 0;}
+
+	.merchant, 
+	.merchant_over {width:16px; height:37px; left:520px; bottom:20px; background-position:-78px 0; z-index:120;}
+	.merchant_over {background-position:-94px 0;}
+
+	.housewife, .housekeeper,
+	.housewife_over, .housekeeper_over	{width:44px; height:47px; left:560px; bottom:0; background-position:-456px 0; z-index:130;}
+	.housewife_over, .housekeeper_over	{background-position:-500px 0;}
+
+	.thief, 
+	.thief_over {width:34px; height:44px; left:290px; bottom:145px; background-position:-500px -139px; z-index:140;}
+	.thief_over {background-position:-534px -139px;}
+
+	.safecracker, 
+	.safecracker_over {width:28px; height:37px; left:312px; bottom:286px; background-position:-544px 0; z-index:150;}
+	.safecracker_over {background-position:-572px 0;}
+
+	.sign,
+	.sign_over {width:19px; height:59px; left:354px; bottom:30px; background-position:-572px -60px; z-index:160;}
+	.sign_over {background-position:-591px -60px;}
+
+	.sign2, 
+	.sign2_over {width:20px; height:62px; left:250px; bottom:169px; background-position:-500px -60px; z-index:160;}
+	.sign2_over {background-position:-520px -60px;}
+
+	.sign3,
+	.sign3_over {width:19px; height:59px; left:442px; bottom:266px; background-position:-572px -60px; z-index:160;}
+	.sign3_over {background-position:-591px -60px;}
+
+	.uncles, 
+	.uncles_over {width:38px; height:40px; left:388px; bottom:150px; background-position:-110px 0; z-index:170;}
+	.uncles_over {background-position:-148px 0;}
+
+	.robbery, 
+	.robbery_over {width:30px; height:40px; left:4px; bottom:146px; background-position:-186px 0; z-index:180;}
+	.robbery_over {background-position:-218px 0;}
+
+	.family, 
+	.family_over {width:30px; height:54px; left:322px; bottom:106px; background-position:-330px 0; z-index:190;}
+	.family_over {background-position:-360px 0;}
+
+	.meeting, 
+	.meeting_over {width:38px; height:55px; left:250px; bottom:60px; background-position:-250px 0; z-index:190;}
+	.meeting_over {background-position:-288px 0;}
+
+	.sickboy, 
+	.sickboy_over {width:30px; height:43px; left:175px; bottom:225px; background-position:-392px 0; z-index:190;}
+	.sickboy_over {background-position:-422px 0;}
+
+	.policedog, 
+	.policedog_over {width:22px; height:26px; left:540px; bottom:220px; background-position:-544px -60px; z-index:190;}
+	.policedog_over {background-position:-544px -89px;}
+
+	.ambulance, 
+	.ambulance_over {width:140px; height:116px; left:152px; bottom:288px; background-position:0 -60px; z-index:9;}
+	.ambulance_over {background-position:-148px -60px;}
+
+	.bmw, 
+	.bmw_over {width:104px; height:64px; left:240px; bottom:0px; background-position:-288px -60px; z-index:200;}
+	.bmw_over {background-position:-288px -124px;}
+
+	.patrolcar, 
+	.patrolcar_over {width:97px; height:80px; left:560px; bottom:190px; background-position:-392px -60px; z-index:200;}
+	.patrolcar_over {background-position:-392px -140px;}
+
+
+
+/* STREET MAP REDEFINED */
+
+	.drunk,
+	.drunk_over {left:0px; bottom:321px; z-index:100; }
+
+	.phone,
+	.phone_over {left:383px; bottom:18px; z-index:1100; }
+
+	.bully,
+	.bully_over {left:315px; bottom:3px; z-index:1300; }
+
+	.businesslady,
+	.businesslady_over {left:460px; bottom:275px; z-index:110; }
+
+	.cofemachine,
+	.cofemachine_over {left:210px; bottom:254px; z-index:1148; }
+
+	.taxi,
+	.taxi_over {left:395px; bottom:300px; z-index:2; }
+
+	.girl,
+	.girl_over {left:180px; bottom:40px; z-index:1200; }
+
+	.post,
+	.post_over {left:290px; bottom:338px; z-index:1200; }
+
+	.businesslady,
+	.businesslady_over {left:450px; bottom:151px; z-index:1200; }
+
+	.bicyclist,
+	.bicyclist_over {left:450px; bottom:210px; z-index:1200; }

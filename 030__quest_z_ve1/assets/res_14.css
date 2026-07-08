@@ -1,0 +1,68 @@
+.difficulty {
+	width: 42px;
+	height: 13px;
+	background: transparent url(icon/item_levels_stars_big.gif) no-repeat 0 0;
+	display: inline-block;
+	zoom:1;
+	_display:inline;
+}
+
+.difficulty.star-1 {
+	background-position: 0px -33px;
+}
+
+.difficulty.star-2 {
+	background-position: 0px -65px;
+}
+
+.difficulty.star-3 {
+	background-position: 0px -97px;
+}
+
+.icon_pad .boss_icon,
+.boss_icon,
+.boss_icon_active,
+.icon_pad a.boss_icon {
+	width: 64px;
+	height: 64px;
+	display: inline-block;
+	text-decoration: none;
+	background: transparent url(map/bosses_64.gif) no-repeat 0 0;
+	background-image:url(map/bosses_64.gif) !important;
+}
+
+.icon_pad a.boss_icon:hover { text-decoration: none !important; }
+
+.boss_icon.boss-suv { background-position: -640px 0px !important; }
+.boss_icon.swat { background-position: 0px 0px !important; }
+.boss_icon.bargain { background-position: -128px 0px !important; }
+.boss_icon.pimp { background-position: -191px 0px !important; }
+.boss_icon.k9 { background-position: -255px 0px !important; }
+.boss_icon.car-race { background-position: -318px 0px !important; }
+.boss_icon.arrested { background-position: -385px 0px !important; }
+.boss_icon.errand-boy { background-position: -512px 0px !important; }
+.boss_icon.playboy { background-position: -574px 0px !important; }
+.boss_icon.bank-robbery { background-position: -704px 0px !important; }
+.boss_icon.kidnapper { background-position: -766px 0px !important; }
+.boss_icon.firefight { background-position: -830px 0px !important; }
+.boss_icon.armoured-car { background-position: -895px 0px !important; }
+.boss_icon.musicians { background-position: -960px 0px !important; }
+.boss_icon.carnival { background-position: -1024px 0px !important; }
+.boss_icon.motorbike-race { background-position: -1088px 0px !important; }
+.boss_icon.motorbike-rider { background-position: -1151px 0px !important; }
+.boss_icon.dog-walk { background-position: -1220px 0px !important; }
+.boss_icon.dog-fight { background-position: -1280px 0px !important; }
+.boss_icon.dealers { background-position: -1344px 0px !important; }
+.boss_icon.limo { background-position: -64px 0px !important; }
+.boss_icon.interview { background-position: -450px 0px !important; }
+
+.boss_icon_active { background-image: url(map/bosses_64_active.gif) !important; }
+
+.boss_tip {
+	width:64px !important;
+	height:64px !important;
+	display:block !important;
+	position:static !important;
+	border:1px solid #fc0;
+	padding:1px;
+}

@@ -1,0 +1,417 @@
+.minimap_body {
+	padding:5px 15px !important;
+}
+
+.obj_flag {
+	overflow:hidden;
+	position:absolute;
+	width:20px;
+	height:32px;
+	left:39px; 
+	bottom:39px;
+	display:block;	
+	overflow:hidden;
+	background-image: url(minimap/obj_flags.gif);
+	background-repeat:no-repeat;
+	z-index:2001;
+}
+
+.obj_2	{ background-position: 0px		0px; }
+.obj_3	{ background-position: -20px	0px; }
+.obj_5	{ background-position: -40px	0px; }
+.obj_1	{ background-position: -60px	0px; }
+.obj_6	{ background-position: -80px	0px; }
+.obj_4	{ background-position: -100px	0px; }
+.obj_0	{ background-position: -120px	0px; }
+
+.mml { display:inline-block; width:11px; height:11px;  border: 1px solid #000;}
+.mmmy{ background-color:#6c0 !important; } /* mine */
+.mmg { background-color:#09c !important; } /* my gang */
+.mmf { background-color:#90c !important; } /* city */
+.mmn { background-color:#444 !important; 	/*	cursor:default !important;*/ } /* missing building */
+.mmc { background-color:#444 !important; } /* city / non-slaved buildings */
+.mme { background-color:#f00 !important; } /* enemy-gang */
+.mmo { background-color:#fa0 !important; } /* other gangster */
+.mmgs { background-color:#fff !important; } /* other gang */
+.mmcop { background-color:#0D4F8B !important; } /* cop fraction */ 
+
+#minimap_wrapper {
+	width:272px;
+	height:336px;
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+	position: relative;
+}
+#mm_map {
+	width:308px;
+}
+#mm_street {
+	width:308px;
+	height:188px;
+	overflow: hidden;
+	position:relative;
+	border:1px solid black;
+}
+#mm_header {
+	width:302px;  /*308*/
+	padding:3px;
+	background:#111;
+	border:1px solid black;
+	border-bottom:0px solid black;
+}
+#mm_footer {
+	width:302px;  /*308*/
+	padding:2px 4px 3px 4px;
+	background:#000;
+}
+
+.mm_legend_table td{
+	padding:1px 10px 0px 0px;
+}
+
+.map_09, 
+.map_10, 
+.map_city {	
+	background: #000 url(minimap/map_09.gif) 0 0 no-repeat;	
+	width:308px;
+	height:188px;
+	}
+.map_10		{ background: #000 url(minimap/map_10.gif) 0 0 no-repeat; }
+.map_city	{ background: #000 url(minimap/map_city.gif) 0 0 no-repeat; }
+
+.gang_09 {
+    background: #000 url(minimap/gang_streets.png) 0 0 no-repeat;	
+    width:308px;
+    height:188px;
+}
+
+
+.minimap_street_winter .map_09		{ background-image:url(minimap/map_09_winter.gif); }
+.minimap_street_winter .map_10		{ background-image:url(minimap/map_10_winter.gif); }
+.minimap_street_winter .map_city	{ background-image:url(minimap/map_city_winter.gif); }
+
+/*
+#mm_tooltip {
+	top:0;
+	left:0;
+	width:205px
+	height:125px;
+	background:#000;
+	position:absolute;
+	z-index:21000;
+	display:inline-block;
+	overflow:hidden;
+}
+
+#mm_tooltip .mmbg {
+	width:205px;
+	height:125px;
+	background: #000 url(../res/bg.gif) 1px 0 no-repeat;
+}
+*/
+
+.spot0  { left:41px;	bottom:115px;	z-index:10; }
+.spot1  { left:-4px;	bottom:92px;	z-index:20; }
+.spot2  { left:231px;	bottom:120px;	z-index:30; }
+.spot3  { left:131px;	bottom:70px;	z-index:40; }
+.spot4  { left:86px;	bottom:47px;	z-index:50; }
+
+.spot5  { left:41px;	bottom:25px;	z-index:60; }
+.spot6  { left:-4px;	bottom:2px;		z-index:70; }
+.spot7  { left:231px;	bottom:5px;		z-index:80; }
+.spot8  { left:186px;	bottom:-18px;	z-index:90; }
+
+.bt
+{
+	overflow:hidden;
+	display:block;
+	position:absolute;
+	width:83px;
+	height:86px;
+	background:transparent url(minimap/rackets_sharp-3.png) 100px 100px no-repeat;
+}
+
+.gang_09 .spot0  { left:41px;	bottom:113px;	z-index:10; }
+.gang_09 .spot1  { left:-4px;	bottom:90px;	z-index:20; }
+.gang_09 .spot2  { left:231px;	bottom:107px;	z-index:30; }
+.gang_09 .spot3  { left:131px;	bottom:68px;	z-index:40; }
+.gang_09 .spot4  { left:86px;	bottom:45px;	z-index:50; }
+.gang_09 .spot5  { left:-4px;	bottom:2px;	z-index:70; }
+.gang_09 .spot6  { left:234px;	bottom:14px;	z-index:80; }
+.gang_09 .spot7  { left:188px;	bottom:-8px;	z-index:90; }
+.gang_09 .spot8  { display: none; }
+
+
+.minimap_agent {
+	left:204px;	
+	bottom:106px;	
+	z-index:90;
+	overflow:hidden;
+	display:block;
+	position:absolute;
+	width:60px;
+	height:36px;
+	background:transparent url(minimap/agent.gif) 0 0 no-repeat;
+}
+.minimap_agent_tip {
+	width:60px;
+	height:36px;
+	background:transparent url(minimap/agent.gif) 0 0 no-repeat;
+}
+
+/*	Japan & Korea Edition	*/
+.bt41.bt-kr, .bt41.bt-jp {background-position:-2108px -4px !important;} /*Energy drinks factory*/
+/*	Arabic & Iran Edition	*/
+.bt32.bt-ir, .bt32.bt-ar {background-position:-1608px -4px !important;} /*Coca Cola factory*/
+
+.bt0	 {background-position:-908px -4px;} 
+.bt1	 {background-position:-1008px -2px;}
+.bt2	 {background-position:-2672px -5px;}
+.bt3	 {background-position:-2850px -5px}
+.bt5	 {background-position:-2758px -7px;}
+.bt6	 {background-position:-2583px -7px;}
+.bt7	 {background-position:-2205px -8px;}
+.bt10	 {background-position:-1108px -2px;} 
+.bt12	 {background-position:-1208px -2px;} 
+.bt13	 {background-position:-1308px -2px;} 
+.bt14	 {background-position:-2495px -2px;} /*casino*/
+.bt25	 {background-position:-1408px -4px;} 
+
+.bt31	 {background-position:-1608px -4px;} /*Coca Cola factory*/
+.bt32	 {background-position:-1508px -4px;} /*Drink factory*/
+.bt41	 {background-position:-1708px -4px;} /*Drug factory*/
+.bt42	 {background-position:-1808px -4px;} /*Gun factory*/
+.bt50	 {background-position:-1908px -4px;} /*Car factory*/
+.bt51	 {background-position:-2008px -4px;} /*Dog factory*/
+.bt52	 {background-position:-2205px -8px;} /*Laboratory*/
+
+
+
+
+.bt101 {background-position:-508px -4px;}
+.bt102 {background-position:-108px -4px;}
+.bt103 {background-position:-208px -4px;}	/*jeweler*/
+.bt104 {background-position:-8px -4px;}		/*Bakery*/
+.bt105 {background-position:-408px   -4px;}	/*Boutique*/
+.bt106 {background-position:-308px -4px;}	/*Butcher*/
+.bt107 {background-position:-708px -4px;}	/*Newsstand*/
+.bt108 {background-position:-808px -4px;}
+.bt109 {background-position:-608px -4px;}
+.bt110 {background-position:-2310px -12px;}  /*candy shop*/
+.bt111 {background-position:-2400px -8px;}  /*gaming shop*/
+
+/*
+.bt101 {background-position:-8px   -4px;}
+.bt102 {background-position:-108px -4px;}
+.bt103 {background-position:-208px -4px;}
+.bt104 {background-position:-308px -4px;}
+.bt105 {background-position:-408px -4px;}
+.bt106 {background-position:-508px -4px;}
+.bt107 {background-position:-608px -4px;}
+.bt108 {background-position:-708px -4px;}
+.bt109 {background-position:-808px -4px;}
+*/
+
+div.minimap
+{
+	width:320px;
+	height:320px;
+}
+
+/*
+div.minimap div {
+	display: block; 
+	height:18px;
+	width:18px;
+	position:relative;
+}
+div.minimap div a {
+	text-decoration: none !important;
+	display: block; 
+	position:absolute;
+	top:0;
+	left:0;
+	height:18px;
+	width:18px;
+	z-index:100;
+}
+*/
+div.minimap a:hover {
+	opacity:.5;
+	filter:alpha(opacity=50);
+	background: white;
+}
+
+div.minimap td table td a:hover {
+	opacity:.5;
+	filter:alpha(opacity=50);
+	background: white;
+}
+
+table.block {
+	width: 9px;
+}
+.inline { display:inline;}
+.abs {
+	display:block;
+	position:absolute;
+}
+.mid {
+	position:relative;
+	vertical-align:middle;
+}
+.no-img {
+	background: none;
+	background-image: none;
+}
+/*Navigation links*/
+.north, .north_over,
+.east, .east_over,
+.west, .west_over,
+.south, .south_over,
+.north-east, .north-east_over,
+.north-west, .north-west_over,
+.south-east, .south-east_over,
+.south-west, .south-west_over {
+	display:block;
+	position:absolute;
+	width:19px;
+	height:19px;
+	text-align:center;
+	text-decoration:none !important;
+	vertical-align:middle;
+	background:transparent url('map/mapdirs.gif') 0 0 no-repeat;
+	z-index:2001;
+	}
+.north {
+	width:30px;
+}
+.east {
+	height:30px;
+	background-position: -32px 0;
+}
+.west {
+	height:30px;
+	background-position: -96px 0;
+}
+.south {
+	width:30px;
+	background-position: -64px 0;
+}
+.north-east {
+	background-position: -192px 0;
+}
+.north-west {
+	background-position: -223px 0;
+}
+.south-east {
+	background-position: -160px 0;
+}
+.south-west	{
+	background-position: -128px 0;
+}
+
+
+.north:hover { background-position: 0 -32px;}
+.east:hover { background-position: -32px -32px;}
+.west:hover { background-position: -96px -32px;}
+.south:hover { background-position: -64px -32px;}
+.north-east:hover { background-position: -192px -32px;}
+.north-west:hover { background-position: -223px -32px;}
+.south-east:hover { background-position: -160px -32px;}
+.south-west:hover { background-position: -128px -32px;}
+
+.map-npcattack {
+    display:block;
+    position:absolute;
+    border: 1px solid #333;
+    font-size:8.5pt !important;
+    background:black url(icon/minimap.gif) 3px 1px no-repeat !important;
+    padding: 0px 2px 0px 19px; 
+    /*width:100px;*/
+    height:16px !important;
+    bottom:0px;
+    left:20px;
+    z-index:2001;
+/*      text-align:middle;*/
+    text-decoration:none !important;
+}
+
+.go-minimap {
+	display:block;
+	position:absolute;
+	border: 1px solid #333;
+	font-size:8.5pt !important;
+	background:black url(icon/plugin.gif) 3px 1px no-repeat !important;
+	padding: 0px 2px 0px 19px; 
+	/*width:100px;*/
+	height:16px !important;
+	bottom:0px;
+	right:20px;
+	z-index:2001;
+/*		text-align:middle;*/
+	text-decoration:none !important;
+}
+
+.minimap-refresh {
+	padding:0 20px 0 0;
+	background:url(icon/refresh.gif) no-repeat 100% 50%;
+	}
+.minimap-position {
+	margin:0;
+	padding:0 20px 5px 0;
+	background:url(icon/x2.gif) no-repeat 100% 30%;
+	}
+img.avt {
+	width:50px;
+	height:50px;
+}
+
+td.preview_cell {
+	padding-left:5px;
+}
+
+input:hover {
+	border-color: #c90;
+}
+
+#minimap {
+    background: transparent url("map/minimap_bg.png") repeat;
+    /* border-collapse: collapse; */
+    width: 272px;
+    height: 336px;
+    display: block;
+}
+
+#minimap_wrapper .north {
+    top: 0;
+    left: 121px;
+}
+#minimap_wrapper .north-east {
+    top: 0;
+    right: 0;
+}
+#minimap_wrapper .east {
+    top: 153px;
+    right: -1px;
+}
+#minimap_wrapper .south-east {
+    bottom: 0;
+    right: 0;
+}
+#minimap_wrapper .south {
+    bottom: -1px;
+    left: 121px;
+}
+#minimap_wrapper .south-west {
+    bottom:0;
+    left:0;
+}
+#minimap_wrapper .west {
+    top: 153px;
+    left: 0;
+}
+#minimap_wrapper .north-west {
+    top: 0;
+    left: -1px;
+}

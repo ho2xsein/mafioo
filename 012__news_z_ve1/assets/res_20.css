@@ -1,0 +1,224 @@
+/* Table */
+	table.nlayout {
+		margin:2px 0;
+		padding:2px;
+		cellspacing:0;
+		cellpadding:0;
+		font:normal 8.5pt Verdana;
+		/*background-color:#ccc;*/
+		/*border:1px solid #555;*/
+		border-collapse:collapse;
+		}
+	table.nlayout td {
+		padding:3px 5px;
+		font-size:8.5pt;
+		vertical-align:top;
+		}
+	table.nlayout th {
+		padding:3px 5px; vertical-align:top;
+		text-align:center;
+		/*color:white;*/
+		text-align:left;
+		}
+
+	.ad-txt {
+		margin-right:2px;
+		padding:2px;
+		font-weight:normal;
+		/*color:#ff9966;*/
+		/*background:#eee;*/
+		/*
+		border-top:1px solid #888;
+		border-right:1px solid #666;
+		border-bottom:1px solid #666;
+		border-left:1px solid #888;*/
+		}
+	.ad-area {
+		margin:0 0 5px 0;
+		padding:1px;
+		width:510px;
+		height:30px;
+		/*color:#ff9966;*/
+		font-weight:normal;
+		/*
+		background-color:#eee;
+		border-top:1px solid #888;
+		border-right:1px solid #666;
+		border-bottom:1px solid #666;
+		border-left:1px solid #888;*/
+		}
+	.ad-btn {
+		width:auto;
+		overflow:visible;
+		margin:0;
+		padding:2px 5px 2px 5px;
+		font:normal 8.5pt Verdana;
+		color:white;
+		background:#ccc url(img/btn.gif) 0 0 repeat-x;
+		border:1px solid #999;
+		}
+		
+	.achievement_table {
+        border-spacing:0px, 0px;
+	}
+	
+	.achievement_desc {
+	    font-size: 12px;
+	    padding-right: 6px;
+	}
+	
+	.achievement_row:hover {
+	    background-color:#f0e0b2;
+	}
+	
+	.achievement_text {
+	    vertical-align: middle !important;
+	    padding-right: 6px;
+	}
+	
+	.gangster_of_day {
+	    padding-top: 5px;
+	    font-size: 16px;
+	}
+
+	.news .padds {
+		width:605px;
+		height:130px;
+		margin:0 0 6px 0;
+		overflow-y:scroll;
+		overflow-x:hidden;
+		border-top:1px solid #999;
+		border-bottom:1px solid #666;
+		border-left:1px solid #666;
+		}
+	.padds {
+		width:605px;
+		}
+	.news .adds {
+		display:table;
+		width:612px;
+		overflow:hidden;
+		}
+	.news .adds .credz{
+		color: #666;
+	}
+	.n_ad {
+		width:250px;
+		max-width:250px !important;
+		margin-bottom:7px;
+	}
+	.news .nad, .news .n_ad{
+		display:table-cell;
+		float:left;
+		width:250px !important;
+		max-width:250px !important;
+		height:55px;
+		margin:0 3px 4px 0;
+		padding:3px;
+		padding-bottom:7px;
+		border:1px solid #333;
+		font-size:7.5pt;
+		overflow:hidden;
+		line-height:11px;
+		word-wrap: break-word;
+		/*color:#555;*/
+		}
+	.news a.nad:hover {
+		text-decoration:none !important;
+		/*background-image:url(img/bg_1.jpg);*/
+		background-image:#222;
+		border:1px solid #666;
+		color:white;
+	}
+	.news .adnf {
+		margin:2px 0 0 0;
+		font-size:7pt;
+		color:#666;
+		}
+	.nad img.avt {
+		float:left;
+		margin:0 4px 0 0;
+		padding:1px;
+		vertical-align:middle;
+		}
+
+/* PAPER */
+.paper-top {
+	background:url("img3/newspaper_03.gif") no-repeat scroll 0 top transparent;
+	height:115px;
+}
+.paper-repeat {
+	background:url("img3/newspaper_05.gif") repeat-y scroll 0 0 transparent;
+	/*height:149px;*/
+	padding:0 33px 36px 33px;
+	color:#301c00;
+}
+.paper-bottom {
+	background:url("img3/newspaper_07.gif") no-repeat scroll 2px top transparent;
+	height:102px;
+	color:#301c00;
+	padding:8px 33px 0 33px;
+}
+.paper-repeat a, .paper-repeat h1 {
+	color:#301c00;
+}
+
+.heading {
+	display:inline-block;
+	position:relative;
+	width:100%;
+	top:42px;
+	font-size:30px;
+	font-family:"Times New Roman",Georgia,Serif;
+	font-weight:bold;
+	color:#301c00;
+	text-shadow:white 1px 1px 1px;
+	text-align:center;
+}
+.np-title {
+	font-size:20px;
+	font-family:"Times New Roman",Georgia,Serif;
+	font-weight:bold;
+	color:#301c00;
+	text-shadow:white 1px 1px 1px;
+	top:-8px;
+	position:relative;
+}
+.np-sep2 {
+	position:relative;
+	width:540px;
+	height:22px;
+	background:url("img3/newspaper_sep2.gif") no-repeat scroll 0 0 transparent;
+	margin:10px auto 0 auto;
+}
+.np-motd {
+	/*color:#301c00;*/
+	/*max-height:200px;*/
+	overflow:hidden;
+}
+
+.adds-wall {
+	width:100% !important;
+	border-spacing:6px 6px;
+}
+
+.adds-wall > tbody > tr > td.ad {
+	/*background-color:#e5d0a2;*/
+	border:1px dotted #c9bca3;
+	/*-moz-box-shadow: 2px 2px 4px #444;
+	-webkit-box-shadow: 2px 2px 4px #444;
+	box-shadow: 2px 2px 4px #444;*/
+}
+.adds-wall td.ad:hover {
+	background-color:#f0e0b2;
+}
+.paper-bottom .page_bar span.summary {
+	color:#301c00;
+}
+.adds-wall .publish_your_ad h2, .paper-repeat h2 {
+	color: #301c00;
+}
+.padds ul {
+	margin:0 0 !important;
+	padding-left:20px !important;
+}

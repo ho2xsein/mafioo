@@ -1,0 +1,384 @@
+/* v5.1 patch */
+
+.right-col {
+	margin:0 0 0 -2px;
+}
+
+#boxes #termsdialog {
+	top: 50px !important;
+}
+
+.header {
+	background-image: none !important;
+}
+.page {
+	position: absolute;
+	top: 75px;
+	left: 0px;
+	width: 570px;
+	height: 550px;
+	z-index: 1;
+}
+#game-time {
+	margin-top: 5px;
+}
+.local-tasks {
+	width: 636px;
+	background: url("img/day_night/v51/tabs_bg.png") repeat-x 0 bottom;
+}
+.local-sub-tasks {
+	border-bottom: 1px solid #590000 !important;
+	border-left: 1px solid #590000 !important;
+	border-right: 2px solid #590000 !important;
+	background-position: left top;
+}
+body .user-panel {
+	background-position: 1px 0px !important;
+	box-shadow: none;
+}
+.poll-box {
+	margin: 0 0 0 1px;
+	width: 188px;
+}
+body .bg-wall { background-image:url("img/day_night/v51/main_bg.jpg") !important;}
+
+.bg-wall.skyfight { background-image:url(img3/backgrounds-buttons.jpg) !important; }
+.bg-wall.dev-bg { background-image:url(img3/mafia_bg_1024.jpg) !important; }
+.bg-wall.mwars-winner { background-image:url(img/day_night/v51/mwars_daily_winner.jpg) !important; }
+
+/* holidays - start */
+.bg-wall.nightlife { background-image: url('img/day_night/v51/bg_wall_nightlife.jpg') !important; }
+.bg-wall.pistols_white { background-image: url('img/day_night/v51/bg_wall_pistols_white.jpg') !important; }
+.bg-wall.pistols_red { background-image: url('img/day_night/v51/bg_wall_pistols_red.jpg') !important; }
+.bg-wall.graffiti { background-image: url('img/day_night/v51/bg_wall_graffiti.jpg') !important; }
+.bg-wall.newyear { background-image: url('img/day_night/v51/bg_wall_newyear.jpg') !important; }
+.bg-wall.valentine { background-image: url('img/day_night/v51/bg_wall_valentine.jpg') !important; }
+.bg-wall.martenitza { background-image: url('img/day_night/v51/bg_wall_martenitza.jpg') !important; }
+.bg-wall.womansday { background-image: url('img/day_night/v51/bg_wall_womansday.jpg') !important; }
+.bg-wall.april-fools { background-image: url('img/day_night/v51/bg_wall_april-fools.jpg') !important; }
+.bg-wall.easter { background-image: url('img/day_night/v51/bg_wall_easter.jpg') !important; }
+.bg-wall.halloween { background-image: url('img/day_night/v51/bg_wall_halloween.jpg') !important; }
+.bg-wall.christmas { background-image: url('img/day_night/v51/bg_wall_christmas.jpg') !important; }
+.bg-wall.ramadan-tr, .bg-wall.ramadan-arab { background-image: url('img/day_night/v51/bg_wall_ramadan.jpg') !important; }
+.bg-wall.spring-start { background-image: url('img/day_night/v51/bg_wall_spring-start.jpg') !important; }
+.bg-wall.summer-start.day { background-image: url('img/day_night/v51/bg_wall_summer-start-day.jpg') !important; }
+.bg-wall.summer-start.night { background-image: url('img/day_night/v51/bg_wall_summer-start-night.jpg') !important; }
+.bg-wall.autumn-start { background-image: url('img/day_night/v51/bg_wall_autumn-start.jpg') !important; }
+.bg-wall.winter-start { background-image: url('img/day_night/v51/bg_wall_winter-start.jpg') !important; }
+.bg-wall.liberation-of-bulgaria { background-image: url('img/day_night/v51/bg_wall_liberation-of-bulgaria.jpg') !important; }
+.bg-wall.independence-day-brazil { background-image: url('img/day_night/v51/bg_wall_independence-day-brazil.jpg') !important; }
+.bg-wall.independence-day-bulgaria { background-image: url('img/day_night/v51/bg_wall_independence-day-bulgaria.jpg') !important; }
+.bg-wall.independence-day-croatia { background-image: url('img/day_night/v51/bg_wall_independence-day-croatia.jpg') !important; }
+.bg-wall.independence-day-czech { background-image: url('img/day_night/v51/bg_wall_independence-day-czech.jpg') !important; }
+.bg-wall.independence-day-greece { background-image: url('img/day_night/v51/bg_wall_independence-day-greece.jpg') !important; }
+.bg-wall.independence-day-hungary { background-image: url('img/day_night/v51/bg_wall_independence-day-hungary.jpg') !important; }
+.bg-wall.independence-day-italy { background-image: url('img/day_night/v51/bg_wall_independence-day-italy.jpg') !important; }
+.bg-wall.independence-day-lithuania { background-image: url('img/day_night/v51/bg_wall_independence-day-lithuania.jpg') !important; }
+.bg-wall.independence-day-macedonia { background-image: url('img/day_night/v51/bg_wall_independence-day-macedonia.jpg') !important; }
+.bg-wall.independence-day-netherlands { background-image: url('img/day_night/v51/bg_wall_independence-day-netherlands.jpg') !important; }
+.bg-wall.independence-day-norway { background-image: url('img/day_night/v51/bg_wall_independence-day-norway.jpg') !important; }
+.bg-wall.independence-day-poland { background-image: url('img/day_night/v51/bg_wall_independence-day-poland.jpg') !important; }
+.bg-wall.independence-day-romania { background-image: url('img/day_night/v51/bg_wall_independence-day-romania.jpg') !important; }
+.bg-wall.independence-day-russia { background-image: url('img/day_night/v51/bg_wall_independence-day-russia.jpg') !important; }
+.bg-wall.independence-day-slovenia { background-image: url('img/day_night/v51/bg_wall_independence-day-slovenia.jpg') !important; }
+.bg-wall.independence-day-sweden { background-image: url('img/day_night/v51/bg_wall_independence-day-sweden.jpg') !important; }
+.bg-wall.independence-day-turkey { background-image: url('img/day_night/v51/bg_wall_independence-day-turkey.jpg') !important; }
+.bg-wall.independence-day-usa { background-image: url('img/day_night/v51/bg_wall_independence-day-usa.jpg') !important; }
+.bg-wall.game-anniversary { background-image: url('img/day_night/v51/bg_wall_game-anniversary.jpg') !important; }
+.bg-wall.bgmafia-anniversary { background-image: url('img/day_night/v51/bg_wall_bgmafia-anniversary.jpg') !important; }
+.bg-wall.mafijoskarai-anniversary { background-image: url('img/day_night/v51/bg_wall_mafijoskarai-anniversary.jpg') !important; }
+/* holidays - end */
+
+body .content-repeat-wrap {
+	border-bottom: 1px solid #590000 !important;
+}
+.publish_your_ad .ad_star {
+	margin: 4px !important;
+}
+#map {
+	/* border: none; */
+	/*border-bottom: 2px solid #590000;*/
+	margin-left: 2px;
+	width: 630px;
+}
+
+#cwrapper {
+	/*padding-bottom: 185px;*/
+	/*background-position: -122px bottom;*/
+	/*background-color: #000000;*/
+	min-height: 793px;
+}
+
+#cwrapper.cwrapper_bg {
+    background-image: none !important;
+}
+#cwrapper.cwrapper_br {
+    background-image: none !important;
+}
+#cwrapper.cwrapper_en {
+    background-image: none !important;
+}
+#cwrapper.cwrapper_lt {
+    background-image: none !important;
+}
+#cwrapper.cwrapper_pl {
+    background-image: none !important;
+}
+#cwrapper.cwrapper_tr {
+    background-image: none !important;
+}
+
+/*
+body #bg-wall .bgwrapper {
+	background-image: url("img/day_night/v51/content_side_background.png") !important;
+	background-position: 100px center;
+	background-repeat: repeat-y;
+}
+#cwrapper {
+	padding-bottom: 185px;
+	background-position: bottom center;
+    background-image:url("img/day_night/v51/foot_bg.png") !important;
+}
+*/
+
+.mwars_content {
+	margin: -20px 0px 0px 6px;
+	min-height: 470px;
+}
+.next_round {
+	top: 20px;
+	position: relative;
+}
+.info_box {
+	top: 20px;
+}
+.mwars_frame_top {
+	height: 28px;
+}
+.territory_sign_wrapper {
+	float: left;
+	width: 241px;
+	margin: 20px;
+}
+
+.bar_10,
+.bar_12,
+.bar_13,
+.modhospital,
+.modprison,
+.modbank,
+.modpolice,
+.modarrest,
+.modjobs,
+.modquest,
+.modcasino,
+.training_fitness,
+.training_school,
+.modexp,
+.modfadearrest,
+.modfadefitness,
+.modfadejail,
+.modfadelearning,
+.modfadepolice,
+.modfadecrime,
+.modfadeonline,
+.modfaderespect,
+.modfaderacket,
+.modfadeprisonbreak,
+.modfadevictories,
+.modfadegang,
+.modfadeboss,
+.modfadedetective,
+.modsnowwhite,
+.modsnowwhite-litva,
+.modtablet,
+.modtablet-world,
+.modpromo,
+.chemist,
+.modwanted,
+.smuggling {
+	margin: 0px !important;
+	padding: 0px !important;
+	background-position: center center;
+	background-size: 632px 100%;
+	width: 632px;
+	height: 100%;
+	min-height: 375px;
+	margin: -1px 0 0 -9px;
+	border: none;
+	overflow: auto;
+}
+
+.top10_backgrounds .modfadecrime { background-image: url(img/crime_v5_fade.png); }
+.top10_backgrounds .modfadevictories { background-image: url(img/victories_v5_fade.png); }
+
+.top10_backgrounds .bar_10,
+.top10_backgrounds .bar_12,
+.top10_backgrounds .bar_13,
+.top10_backgrounds .modhospital,
+.top10_backgrounds .modprison,
+.top10_backgrounds .modbank,
+.top10_backgrounds .modpolice,
+.top10_backgrounds .modarrest,
+.top10_backgrounds .modjobs,
+.top10_backgrounds .modquest,
+.top10_backgrounds .modcasino,
+.top10_backgrounds .training_fitness,
+.top10_backgrounds .training_school,
+.top10_backgrounds .modexp,
+.top10_backgrounds .modfadearrest,
+.top10_backgrounds .modfadefitness,
+.top10_backgrounds .modfadejail,
+.top10_backgrounds .modfadelearning,
+.top10_backgrounds .modfadepolice,
+.top10_backgrounds .modfadecrime,
+.top10_backgrounds .modfadeonline,
+.top10_backgrounds .modfaderespect,
+.top10_backgrounds .modfaderacket,
+.top10_backgrounds .modfadeprisonbreak,
+.top10_backgrounds .modfadevictories,
+.top10_backgrounds .modsnowwhite,
+.top10_backgrounds .modsnowwhite-litva,
+.top10_backgrounds .modtablet,
+.top10_backgrounds .modtablet-world,
+.top10_backgrounds .modpromo,
+.top10_backgrounds .chemist {
+	background-position: top right;
+	background-size: auto auto;
+}
+.top10_backgrounds .modfadegang,
+.top10_backgrounds .modfadeboss,
+.top10_backgrounds .modfadedetective {
+	background-position: bottom right;
+	background-size: auto auto;
+}
+
+.default_wrapper {
+	padding: 10px;
+}
+
+.page_bar {
+	margin: 14px 0px 7px 0px;
+}
+
+.paper-repeat {
+	min-height: 405px;
+}
+
+.free_skill_points {
+	height: 12px;
+}
+
+div.blackjack {
+	width: 616px;
+}
+
+body .usrtool_backgr {
+	min-height: 0px;
+	padding-bottom: 25px;
+}
+
+body .usrtools a:last-child span {
+    border: none;
+}
+
+.content-repeat-wrap, .content-bottom-wrap, .content-wrap {
+	background: none;
+}
+.mod_background_wrapper {
+	padding: 0px;
+}
+
+div.chatw div#sbox,
+div.chatw #vis {
+	height: 350px;
+}
+.chat-messages div,
+.chat-messages-scroll div {
+	margin-bottom: 3px;
+}
+/*
+.content .wrap .gcontent #login-content .lbtn,
+#login-content .register_form h1,
+#login-content .reginfo h1,
+#login-content .lostpwd_day_night .general-btn .general-btn-body .lbtn,
+h1,
+body .credit-info b,
+.credit-info-new b,
+.window-modal-content .btn,
+.fight-finder #matchmaker .gs-btn .gs-btn-body
+*/
+body .main-menu a:link span,
+body .main-menu a:visited span {
+	font-family: inherit;
+}
+.mwars_navbar .user-box {
+	margin: 2px 0px 0px 6px;
+}
+.default-last-child tr:last-child td {
+	border-bottom: 0px solid #555;
+}
+
+.screenshots-bar {
+	left: 25px;
+	width: 512px;
+}
+#game_trailer-media {
+	display: none;
+}
+
+.header .nad,
+.header .nadgt {
+	padding: 2px !important;
+	height: 56px !important;
+}
+.header .nad:hover,
+.header .nadgt:hover {
+	padding: 1px !important;
+}
+.header .mini-adds {
+	display:block;
+	position: absolute;
+	top: 63px;
+	left: 163px;
+	width:620px;
+	height: auto;
+	max-height:16px;
+	line-height: 16px;
+	font-size: 12px;
+	text-align: center;
+	background-color: black;
+	overflow:hidden;
+}
+.header .mini-adds a,
+.header .mini-adds a img {
+	color: red;
+	vertical-align: top;
+}
+.header .mini-adds a.mwars_color_territory {
+	color: #9f0;
+}
+.header .mini-adds a:hover {
+	color: #fff;
+}
+.dataTables_scrollBody {
+    scrollbar-width: thin; 
+}
+.dataTables_scrollBody::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.dataTables_scrollBody::-webkit-scrollbar-track {
+    background: transparent;
+}
+.dataTables_scrollBody::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0); 
+    border-radius: 10px;
+    transition: background 0.2s;
+}
+.dataTables_scrollBody:hover::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+}
+.dataTables_scrollBody::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.6);
+}

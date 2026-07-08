@@ -1,0 +1,290 @@
+.fight-header {
+	width:100%;
+	text-align:center;
+	min-height:75px;
+}
+
+.fight-stats-wrapper {
+    padding:0;
+	display:none;
+	position:relative;
+	height:0px;
+	width:570px;
+	overflow:visible;
+	margin:0 auto 0 auto;
+}
+div.fight-stats {
+	background: url("img3/content-bg-top3_s2.jpg") no-repeat scroll left top transparent;
+	-moz-box-shadow: 0 0 11px #000;
+	-webkit-box-shadow: 0 0 11px #000;
+	box-shadow: 0 0 11px #000;
+	position:absolute;
+	top:0px;
+	min-height:200px;
+	width:570px;
+	text-align:center;
+	border:1px solid #222;
+	z-index:2;
+}
+
+.fight-stats .tile { width:52px; height:52px; display:inline-block; position:relative; }
+
+table.outcome-head {
+	width:614px;
+	padding:0;
+}
+table.outcome-head .outcome {
+	width:106px;
+}
+table.outcome-head td.attacker-avt, table.outcome-head td.defender-avt {
+	width:55px;
+	height:55px;
+}
+td.attacker-avt a.attacker-avt, td.defender-avt a.defender-avt{
+	display:block;
+	height:52px;
+	width:52px;
+}
+a.avt-highlight {
+	-moz-box-shadow: 0 0 7px #ffcc00;
+	-webkit-box-shadow: 0 0 7px #ffcc00;
+	box-shadow: 0 0 7px #ffcc00;
+}
+td.player-info {
+	width:190px;
+}
+div.attacker-info div, div.defender-info div { display:inline-block; }
+div.attacker-info {
+	width:120px;
+	float:right;
+}
+
+.player-atk-info {
+	width:27px !important;
+}
+.player-info2 {
+	width:164px !important;
+}
+
+.rtl div.attacker-info {
+	float:left;
+}
+.attacker-level {
+	width:53px;
+}
+td.a-arm .arm-atk {
+	display:inline-block;
+	position:relative;
+	float:right;
+	padding:0 5px;
+}
+
+.attacker-level .u-l, .defender-level .u-l {
+	padding-left:1px;
+	display:block;
+    margin-top:3px;
+	text-align:center;
+}
+.rtl .attacker-level .u-l, .rtl .defender-level .u-l {
+	padding-right:20px;
+}
+
+
+div.defender-info {
+	width:120px;
+	float:left;
+}
+.rtl div.defender-info {
+	float:right;
+}
+.defender-level {
+	width:53px;
+}
+td.d-arm .arm-atk {
+	display:inline-block;
+	position:relative;
+	float:left;
+	padding:0 5px;
+}
+
+
+div.fight-stats table {
+	margin-top:10px;
+	width:100%;
+}
+.fight-stats .item_small {
+	padding:1px;
+	border:1px solid #000;
+}
+.fight-stats .uarmed .item_small { width:33px; height:33px; }
+.fight-stats .uarmed {
+	width:37px;
+	height:37px;
+	float:left;
+	position:relative;
+}
+td.a-arm, td.d-arm {width:170px;}
+td.a-arm .uarmed { float:right !important; }
+td.d-arm .uarmed { float:left !important; }
+td.a-arm span.mgauge, td.d-arm span.mgauge { clear:both; }
+
+.rtl td.a-arm .uarmed { float:left !important; }
+.rtl td.d-arm .uarmed { float:right !important; }
+
+td.a-arm .attack { float:right; }
+td.d-arm .attack { float:left; }
+
+.rtl td.a-arm .attack { float:left; }
+.rtl td.d-arm .attack { float:right; }
+
+div.fight-stats table .attacker-stats, div.fight-stats table .defender-stats {
+	border: 1px solid #444;
+	background-color:#000;
+	width:250px;
+	height:55px;
+	padding:5px;
+}
+div.fight-stats td a.hint {
+	-moz-box-shadow: 0 0 5px #fc0;
+	-webkit-box-shadow: 0 0 5px #fc0;
+	box-shadow: 0 0 5px #fc0;
+    border: 1px solid #000;
+	width:50px;
+	height:50px;
+	padding:1px;
+	display:inline-block;
+}
+
+.a_cell {text-align:right !important;}
+.d_cell {text-align:left !important;}
+.attacker-car, .attacker-gun, .attacker-dog {
+	display:inline-block !important;
+}
+
+/* Multi part gauge style */
+.mgauge {
+	overflow:hidden;
+	display:block;
+	width:100%;
+	height:9px;
+	margin:0;
+	padding:0;
+	font-size:3px;
+	background:transparent url(img3/mp-gauge.gif) no-repeat 0 0;
+	position:relative;
+	}
+.mgauge-in {
+	display:block;
+	height:5px;
+	margin:2px;
+	padding:0;
+	font-size:3px;
+	position:absolute;
+	}
+.mgauge-part {
+	display:block;
+	height:5px;
+	margin:2px;
+	padding:0;
+	font-size:3px;
+	position:absolute;
+	top:0;
+	}
+.mgauge-left .mgauge-in, .mgauge-left .mgauge-part {
+	left:-1px;
+}
+.mgauge-right .mgauge-in, .mgauge-right .mgauge-part {
+	right:-1px;
+}
+.mgauge.mgauge-green .mgauge-in {
+	background:transparent url(img3/mp-gauge.gif) no-repeat 0 -16px;
+}
+.mgauge.mgauge-green .mgauge-part {
+	background:transparent url(img3/mp-gauge.gif) no-repeat 0 -10px;
+}
+.mgauge.mgauge-red .mgauge-in {
+	background:transparent url(img3/mp-gauge.gif) no-repeat 0 -28px;
+}
+.mgauge.mgauge-red .mgauge-part {
+	background:transparent url(img3/mp-gauge.gif) no-repeat 0 -22px;
+}
+
+/* modal window styles */
+.window-modal-content table.outcome-head {
+	width:572px;
+    padding: 0;
+    -moz-box-shadow: 0 0 5px #000000;
+    background-color: #111111;
+    border: 1px solid #111111;
+	text-align:center;
+}
+.window-modal-content table.fight-stats {
+	width:572px;
+	text-align:center;
+}
+
+
+/* Redeclared styles from base.css for login page */
+
+.pwin, span.winner {color:#6f0;}
+.ploose, span.looser {color:#f33;}
+.equal {color:#fc3;}
+
+.experience	{padding-left:16px; background:url(icon/level.gif) 0 50% no-repeat;}
+.level		{padding-left:16px; background:url(icon/level.gif) 0 1px no-repeat;}
+.defence	{padding-left:16px; background:url(icon/shield.gif) 0px 0px no-repeat;}
+.life		{padding-left:16px; background:url(icon/heart.gif) 0 1px no-repeat;}
+.attack		{padding-left:16px; background:url(icon/flame-ani-5.gif) 0px 0px no-repeat;}
+.attack1	{padding-left:16px; background:url(icon/flame-ani-5.gif) 0px 0px no-repeat;}
+
+.experience-box {
+	overflow:hidden;
+	position:relative;
+	display:block;
+	width:54px;
+	height:17px;
+	margin:1px 0 0 0;
+	padding:0;
+	background:transparent url(img3/experience2_s2.gif) no-repeat 0 1px;
+}
+
+div.screenshot div.fight-header {
+	background: url("img3/content-bg-top3_s2.jpg") no-repeat scroll left top transparent;
+}
+
+div.screenshot div.fight-header {
+	font-size:11px !important;
+}
+div.screenshot .fight-stats-wrapper {
+	width:614px;
+	display:block;
+}
+
+div.screenshot .fight-header, div.screenshot .outcome-head, div.screenshot .fight-stats-wrapper,  div.screenshot .fight-stats {
+	width:100%;
+}
+div.screenshot .fight-stats-wrapper {
+	min-height:200px;
+}
+div.screenshot .fight-stats {
+	-moz-box-shadow: 0 0 0 #000;
+	-webkit-box-shadow: 0 0 0 #000;
+	box-shadow: 0 0 0 #000;
+	border:none;
+	background:none;
+	padding-top:5px;
+}
+
+.fightscreen_head_win,
+.fightscreen_head_loss {
+	width: 564px;
+	height: 70px;
+	margin: auto;
+	padding-bottom: 10px;
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-image: url('img3/fightscreen-win-header.png');
+}
+.fightscreen_head_loss {
+	background-image: url('img3/fightscreen-loss-header.png');
+}
