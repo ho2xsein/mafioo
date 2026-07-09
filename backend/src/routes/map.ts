@@ -1,4 +1,5 @@
 import { Router } from "express";
+import type { MapSpot } from "@prisma/client";
 import { prisma } from "../lib/prisma.js";
 import { HttpError } from "../lib/httpError.js";
 import { asyncHandler } from "../lib/asyncHandler.js";
@@ -6,7 +7,7 @@ import { requireAuth } from "../middleware/auth.js";
 import { applyRegenAndGet } from "../game/regen.js";
 import { toPlayerMe, toPlayerPublic } from "../game/serialize.js";
 import { performCrimeAction } from "../game/crime.js";
-import type { MapSpotDef, MapTileResponse } from "@mafioo/shared";
+import type { CrimeActionResult, MapSpotGroup, MapTileResponse } from "@mafioo/shared";
 
 export const mapRouter = Router();
 
@@ -21,29 +22,38 @@ const NEIGHBOR_OFFSETS = [
   { dx: 1, dy: 1 },
 ];
 
-function toSpotDef(spot: { id: string; label: string; cashCost: number; staminaCost: number; riskPercent: number; rewardMin: number; rewardMax: number }): MapSpotDef {
-  return {
-    id: spot.id,
-    label: spot.label,
-    cashCost: spot.cashCost,
-    staminaCost: spot.staminaCost,
-    riskPercent: spot.riskPercent,
-    rewardMin: spot.rewardMin,
-    rewardMax: spot.rewardMax,
-  };
+function groupSpots(spots: MapSpot[]): MapSpotGroup[] {
+  const groups = new Map<string, MapSpotGroup>();
+  for (const spot of spots) {
+    let group = groups.get(spot.spotLabel);
+    if (!group) {
+      group = { spotLabel: spot.spotLabel, actions: [] };
+      groups.set(spot.spotLabel, group);
+    }
+    group.actions.push({
+      id: spot.id,
+      spotLabel: spot.spotLabel,
+      actionLabel: spot.actionLabel,
+      cashCost: spot.cashCost,
+      staminaCost: spot.staminaCost,
+      riskPercent: spot.riskPercent,
+      reward: spot.reward,
+    });
+  }
+  return [...groups.values()];
 }
 
 mapRouter.get(
   "/city",
   requireAuth,
   asyncHandler(async (_req, res) => {
-    const spots = await prisma.mapSpot.findMany({ where: { mapType: "city" }, orderBy: { spotKey: "asc" } });
+    const spots = await prisma.mapSpot.findMany({ where: { mapType: "city" }, orderBy: { sortOrder: "asc" } });
     const response: MapTileResponse = {
       type: "city",
       x: 0,
       y: 0,
       owner: null,
-      spots: spots.map(toSpotDef),
+      spotGroups: groupSpots(spots),
       neighbors: [],
     };
     res.json(response);
@@ -60,7 +70,7 @@ mapRouter.get(
 
     const owner = await prisma.player.findFirst({ where: { streetX: x, streetY: y } });
     const spots = owner
-      ? await prisma.mapSpot.findMany({ where: { mapType: "street" }, orderBy: { spotKey: "asc" } })
+      ? await prisma.mapSpot.findMany({ where: { mapType: "street" }, orderBy: { sortOrder: "asc" } })
       : [];
 
     const response: MapTileResponse = {
@@ -68,7 +78,7 @@ mapRouter.get(
       x,
       y,
       owner: owner ? toPlayerPublic(owner) : null,
-      spots: spots.map(toSpotDef),
+      spotGroups: groupSpots(spots),
       neighbors: NEIGHBOR_OFFSETS.map(({ dx, dy }) => ({ dx, dy, x: x + dx, y: y + dy })),
     };
     res.json(response);
@@ -85,13 +95,16 @@ mapRouter.post(
     const player = await applyRegenAndGet(req.playerId!);
     const outcome = await performCrimeAction(player, spot);
 
-    res.json({
+    const result: CrimeActionResult = {
       success: outcome.success,
       cashDelta: outcome.cashDelta,
+      respectDelta: outcome.respectDelta,
       xpDelta: outcome.xpDelta,
       heatDelta: outcome.heatDelta,
+      leveledUpTo: outcome.leveledUpTo,
       message: outcome.message,
       player: toPlayerMe(outcome.updatedPlayer),
-    });
+    };
+    res.json(result);
   }),
 );

@@ -53,7 +53,7 @@ export function StreetPage() {
       <div style={{ height: 16 }} />
 
       {tile.owner ? (
-        <MapSpots spots={tile.spots} />
+        <MapSpots spotGroups={tile.spotGroups} />
       ) : (
         <p style={{ color: "var(--color-text-muted)" }}>No crime spots on a vacant lot.</p>
       )}

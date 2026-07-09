@@ -13,6 +13,9 @@ import { inventoryRouter } from "./routes/inventory.js";
 import { crimeLogRouter } from "./routes/crimeLog.js";
 import { profileRouter } from "./routes/profile.js";
 import { barRouter } from "./routes/bar.js";
+import { hospitalRouter } from "./routes/hospital.js";
+import { skillsRouter } from "./routes/skills.js";
+import { extrasRouter } from "./routes/extras.js";
 
 export function createApp() {
   const app = express();
@@ -33,6 +36,9 @@ export function createApp() {
   app.use("/crime_log", crimeLogRouter);
   app.use("/profile", profileRouter);
   app.use("/bar", barRouter);
+  app.use("/hospital", hospitalRouter);
+  app.use("/skills", skillsRouter);
+  app.use("/extras", extrasRouter);
 
   app.use(errorHandler);
 

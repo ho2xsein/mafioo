@@ -14,6 +14,9 @@ import { CrimeLogPage } from "./pages/CrimeLog";
 import { ProfilePage } from "./pages/Profile";
 import { AvatarPickerPage } from "./pages/AvatarPicker";
 import { BarsListPage, BarDetailPage } from "./pages/Bars";
+import { HospitalPage } from "./pages/Hospital";
+import { SkillsPage } from "./pages/Skills";
+import { ExtrasPage } from "./pages/Extras";
 import { ComingSoonPage } from "./pages/ComingSoon";
 
 const COMING_SOON_ROUTES: { path: string; title: string }[] = [
@@ -22,8 +25,6 @@ const COMING_SOON_ROUTES: { path: string; title: string }[] = [
   { path: "/contrabandist", title: "Contrabandist" },
   { path: "/market", title: "Black Market" },
   { path: "/jail", title: "Jail" },
-  { path: "/hospital", title: "Hospital" },
-  { path: "/skills", title: "Skills" },
   { path: "/rackets", title: "Rackets" },
   { path: "/quests", title: "Quests" },
   { path: "/tasks", title: "Tasks" },
@@ -55,6 +56,9 @@ export function App() {
             <Route path="/crime_log" element={<CrimeLogPage />} />
             <Route path="/bars" element={<BarsListPage />} />
             <Route path="/bars/:id" element={<BarDetailPage />} />
+            <Route path="/hospital" element={<HospitalPage />} />
+            <Route path="/skills" element={<SkillsPage />} />
+            <Route path="/extras" element={<ExtrasPage />} />
             <Route path="/profile/avatar" element={<AvatarPickerPage />} />
             <Route path="/profile/:username" element={<ProfilePage />} />
             {COMING_SOON_ROUTES.map((r) => (

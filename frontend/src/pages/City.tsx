@@ -18,7 +18,7 @@ export function CityPage() {
       <p style={{ color: "var(--color-text-muted)" }}>
         Shared crime spots — banks, hospital, police, market and jail are reachable from the nav above.
       </p>
-      <MapSpots spots={tile.spots} />
+      <MapSpots spotGroups={tile.spotGroups} />
     </div>
   );
 }

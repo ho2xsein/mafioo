@@ -1,10 +1,10 @@
 import { useState } from "react";
-import type { CrimeActionResult, MapSpotDef } from "@mafioo/shared";
+import type { CrimeActionResult, MapSpotDef, MapSpotGroup } from "@mafioo/shared";
 import { api, ApiError } from "../api/client";
 import { useAuth } from "../auth/AuthContext";
 import { Card } from "../design-system/Card";
 
-export function MapSpots({ spots }: { spots: MapSpotDef[] }) {
+export function MapSpots({ spotGroups }: { spotGroups: MapSpotGroup[] }) {
   const { refresh } = useAuth();
   const [busySpot, setBusySpot] = useState<string | null>(null);
   const [lastResult, setLastResult] = useState<{ spotId: string; message: string; success: boolean } | null>(null);
@@ -27,29 +27,34 @@ export function MapSpots({ spots }: { spots: MapSpotDef[] }) {
   }
 
   return (
-    <Card title="Crime spots">
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: 12 }}>
-        {spots.map((spot) => (
-          <div key={spot.id} className="card" style={{ padding: 12 }}>
-            <strong>{spot.label}</strong>
-            <p style={{ fontSize: 12, color: "var(--color-text-muted)" }}>
-              Stamina: {spot.staminaCost} &middot; Risk: {spot.riskPercent}% &middot; Reward: ${spot.rewardMin}-$
-              {spot.rewardMax}
-            </p>
-            <button
-              className="button"
-              disabled={busySpot === spot.id}
-              onClick={() => doAction(spot)}
-              style={{ width: "100%" }}
-            >
-              {busySpot === spot.id ? "..." : "Do it"}
-            </button>
-            {lastResult?.spotId === spot.id && (
-              <p className={lastResult.success ? "success-text" : "error-text"}>{lastResult.message}</p>
-            )}
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr))", gap: 12 }}>
+      {spotGroups.map((group) => (
+        <Card key={group.spotLabel} title={group.spotLabel}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {group.actions.map((spot) => (
+              <div key={spot.id}>
+                <button
+                  className="button"
+                  disabled={busySpot === spot.id}
+                  onClick={() => doAction(spot)}
+                  style={{ width: "100%", display: "flex", justifyContent: "space-between", gap: 8 }}
+                  title={`Stamina ${spot.staminaCost} · Risk ${spot.riskPercent}%`}
+                >
+                  <span>{busySpot === spot.id ? "..." : spot.actionLabel}</span>
+                  <span style={{ fontWeight: "normal", opacity: 0.8 }}>
+                    {spot.reward >= 0 ? `+$${spot.reward}` : `-$${Math.abs(spot.reward)}`}
+                  </span>
+                </button>
+                {lastResult?.spotId === spot.id && (
+                  <p className={lastResult.success ? "success-text" : "error-text"} style={{ margin: "2px 0 0" }}>
+                    {lastResult.message}
+                  </p>
+                )}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </Card>
+        </Card>
+      ))}
+    </div>
   );
 }

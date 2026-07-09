@@ -1,6 +1,7 @@
 import type { Player } from "@prisma/client";
 import type { PlayerMe, PlayerPublic } from "@mafioo/shared";
 import { xpToNextLevel } from "./xp.js";
+import { computeAttack, computeDefencePercent } from "./combat.js";
 
 export function toPlayerPublic(player: Player): PlayerPublic {
   return {
@@ -48,5 +49,7 @@ export function toPlayerMe(player: Player): PlayerMe {
     attackMode: player.attackMode,
     vipExpiresAt: player.vipExpiresAt ? player.vipExpiresAt.toISOString() : null,
     freeSkillPoints: player.freeSkillPoints,
+    attack: computeAttack(player),
+    defencePercent: computeDefencePercent(player),
   };
 }

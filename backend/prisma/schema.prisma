@@ -46,6 +46,8 @@ model Player {
   battlePoints     Int       @default(10)
   maxBattlePoints  Int       @default(10)
   lastRegenAt      DateTime  @default(now())
+  lastInterestAt   DateTime  @default(now())
+  lastSurgeryAt    DateTime?
 
   freeSkillPoints  Int       @default(0)
   attackMode       AttackMode @default(normal)
@@ -104,7 +106,7 @@ model Skill {
   key         String   @unique
   name        String
   description String
-  requiredLevelPerLevel Int @default(1)
+  unlockLevel Int      @default(1)
 
   playerSkills PlayerSkill[]
 }
@@ -206,12 +208,13 @@ model MapSpot {
   id           String  @id @default(cuid())
   mapType      MapType
   spotKey      String
-  label        String
+  spotLabel    String
+  actionLabel  String
+  sortOrder    Int     @default(0)
   cashCost     Int     @default(0)
   staminaCost  Int     @default(0)
   riskPercent  Int     @default(0)
-  rewardMin    Int     @default(0)
-  rewardMax    Int     @default(0)
+  reward       Int     @default(0)
 
   @@unique([mapType, spotKey])
 }
@@ -490,6 +493,7 @@ model Extra {
   extraId       Int    @unique
   name          String
   description   String
+  kind          String @default("boost")
   priceCredits  Int
   durationHours Int
 

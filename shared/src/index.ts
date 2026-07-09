@@ -115,6 +115,8 @@ export interface PlayerMe extends PlayerPublic {
   attackMode: AttackMode;
   vipExpiresAt: string | null;
   freeSkillPoints: number;
+  attack: number;
+  defencePercent: number;
 }
 
 export interface AuthRegisterRequest {
@@ -134,12 +136,17 @@ export interface AuthResponse {
 
 export interface MapSpotDef {
   id: string;
-  label: string;
+  spotLabel: string;
+  actionLabel: string;
   cashCost: number;
   staminaCost: number;
   riskPercent: number;
-  rewardMin: number;
-  rewardMax: number;
+  reward: number;
+}
+
+export interface MapSpotGroup {
+  spotLabel: string;
+  actions: MapSpotDef[];
 }
 
 export interface MapTileResponse {
@@ -147,15 +154,17 @@ export interface MapTileResponse {
   x: number;
   y: number;
   owner: PlayerPublic | null;
-  spots: MapSpotDef[];
+  spotGroups: MapSpotGroup[];
   neighbors: { dx: number; dy: number; x: number; y: number }[];
 }
 
 export interface CrimeActionResult {
   success: boolean;
   cashDelta: number;
+  respectDelta: number;
   xpDelta: number;
   heatDelta: number;
+  leveledUpTo: number | null;
   message: string;
   player: PlayerMe;
 }
@@ -173,6 +182,30 @@ export interface InventoryItemDto {
 
 export interface BankTransactionRequest {
   amount: number;
+}
+
+export interface SkillDto {
+  id: string;
+  key: SkillKey;
+  name: string;
+  description: string;
+  unlockLevel: number;
+  level: number;
+}
+
+export interface ExtraDto {
+  id: string;
+  extraId: number;
+  name: string;
+  description: string;
+  kind: string;
+  priceCredits: number;
+  durationHours: number;
+  activeUntil: string | null;
+}
+
+export interface HospitalActionRequest {
+  useCredits: boolean;
 }
 
 export interface MessageDto {

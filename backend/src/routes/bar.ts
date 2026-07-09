@@ -96,6 +96,8 @@ barRouter.post(
     const toxicationDelta = effect.toxication ?? 0;
     const sexapealDelta = effect.sexapeal ?? 0;
 
+    if (player.stamina + staminaDelta < 0) throw new HttpError(400, "Not enough stamina");
+
     const nextAvailable = available - 1;
     const updatedPlayer = await prisma.$transaction(async (tx) => {
       await tx.barItem.update({
